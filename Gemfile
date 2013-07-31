@@ -68,7 +68,8 @@ end
 
 group :development, :test do
   gem 'faker'
-  gem 'jasmine-rails'
+  gem 'jasmine'
+  gem 'guard-jasmine', require: false
 end
 
 
