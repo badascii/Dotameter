@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Dotameter
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    :javascript
+      http://code.angularjs.org/1.0.7/angular.min.js
+
+  %body
+    = yield

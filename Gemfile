@@ -14,9 +14,12 @@ gem 'angularjs-rails'
 
 ################################################################################
 
-
+# Figaro provides a clean and simple way to configure your app and keep the private stuff… private
 gem 'figaro'
+
+# Makes http fun again!
 gem 'httparty'
+
 gem 'active_model_serializers'
 
 ################################################################################
