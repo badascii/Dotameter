@@ -1,5 +1,11 @@
-## Dota 2 Stat Tracking site
+## Dotameter.com
+
+### Dota 2 stats done right
 
 
-This app implements Valve's Dota 2 API to compile comprehensive stats on
-individual users as well as the health of the overall game.
+This app implements Valve's Dota 2 API to compile comprehensive statistics on
+individual players and teams as well as all of the in-game heroes and game modes.
+
+*Deep, meaningful stats empower players with cutting edge Dota 2 knowledge
+*Interactive charts and graphs bring the numbers to life
+*Customizable user experience with searching, filters, and instant access to personal profile
