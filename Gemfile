@@ -11,6 +11,8 @@ gem 'pg'
 # Wraps the Angular.js library for use in Rails 3.1 and above. Assets will minify automatically during production.
 gem 'angularjs-rails'
 
+# A simple database agnostic import/export app to transfer data to/from a remote database.
+gem 'taps'
 
 ################################################################################
 
