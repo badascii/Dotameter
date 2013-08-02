@@ -1,11 +1,11 @@
 class HeroController < ApplicationController
-  before_action :set_hero, only: [:show]
 
   def index
     @heroes = Hero.all
   end
 
   def show
+    set_hero
   end
 
   private

@@ -9,7 +9,7 @@
 heroes = DotaAPI.get_heroes
 
 heroes.each do |hero|
-  Hero.create({ name: hero.name,
-                valve_id: hero.id
+  Hero.create!({ name: hero["name"],
+                valve_id: hero["id"].to_i
               })
 end
