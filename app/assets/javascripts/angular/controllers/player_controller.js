@@ -1,3 +1,3 @@
-app.controller('playerCtrl', function($scope, $http) {
+// app.controller('playerCtrl', function($scope, $http) {
 
-});
+// });
