@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-heroes = DotaAPI.get_heroes
+heroes = DotaAPI.get_heroes["result"]["heroes"]
 
 heroes.each do |hero|
-  Hero.create!({ name: hero["name"],
-                valve_id: hero["id"].to_i
-              })
+  Hero.create!({ name: hero["name"].gsub('npc_dota_hero_', ''),
+                 valve_id: hero["id"].to_i
+               })
 end
