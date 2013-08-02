@@ -11,8 +11,9 @@ gem 'pg'
 # Wraps the Angular.js library for use in Rails 3.1 and above. Assets will minify automatically during production.
 gem 'angularjs-rails'
 
-# A simple database agnostic import/export app to transfer data to/from a remote database.
-gem 'taps'
+# Allows for use of db push/pull
+gem 'heroku'
+
 
 ################################################################################
 
@@ -78,7 +79,11 @@ end
 group :production do
   # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
   gem 'turbolinks'
+
   gem 'rails_12factor'
+
+  # A simple database agnostic import/export app to transfer data to/from a remote database.
+  gem 'taps'
 end
 
 group :doc do

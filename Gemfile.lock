@@ -69,6 +69,7 @@ GEM
     diff-lcs (1.2.4)
     diffy (3.0.1)
     erubis (2.7.0)
+    excon (0.25.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     faker (1.2.0)
@@ -105,6 +106,14 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    heroku (2.39.5)
+      heroku-api (~> 0.3.7)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.3.14)
+      excon (~> 0.25.1)
     hike (1.2.3)
     hirb (0.7.1)
     httparty (0.11.0)
@@ -137,6 +146,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+    launchy (2.3.0)
+      addressable (~> 2.3)
     listen (1.2.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -155,6 +166,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.7)
     multi_xml (0.5.4)
+    netrc (0.7.7)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.16.0)
@@ -301,6 +313,7 @@ DEPENDENCIES
   guard-jasmine
   guard-rspec
   haml-rails
+  heroku
   httparty
   jasmine
   jazz_hands
