@@ -8,6 +8,8 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'newrelic_rpm'
+
 # Wraps the Angular.js library for use in Rails 3.1 and above. Assets will minify automatically during production.
 gem 'angularjs-rails'
 
