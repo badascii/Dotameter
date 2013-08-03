@@ -167,6 +167,7 @@ GEM
     multi_json (1.7.7)
     multi_xml (0.5.4)
     netrc (0.7.7)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.16.0)
@@ -320,6 +321,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   meta_request
+  newrelic_rpm
   pg
   rails (= 4.0.0)
   rails_12factor
