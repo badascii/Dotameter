@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130802052514) do
+ActiveRecord::Schema.define(version: 20130802224916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20130802052514) do
     t.datetime "updated_at"
     t.integer  "valve_id"
     t.string   "name"
+  end
+
+  create_table "matches", force: true do |t|
+    t.boolean  "radiant_win"
+    t.integer  "valve_match_id"
+    t.integer  "valve_seq_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
