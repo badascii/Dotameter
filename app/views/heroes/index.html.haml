@@ -1,4 +1,3 @@
-.heroes{"ng-controller" => "heroCtrl"}
-  .div{"ng-repeat" => "hero in heroes"}
-    %a{"href" => "{{hero.id}}"}
-      {{hero.name}}
+%ul.heroes{"ng-controller" => "heroCtrl"}
+  %li{"ng-repeat" => "hero in heroes"}
+    %a{:href => "heroes/{{hero.id}}"} {{hero.name}}

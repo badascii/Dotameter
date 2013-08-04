@@ -1,1 +1,1 @@
-json.extract! @hero, :name, :valve_id
+json.extract! @hero, :id, :name, :valve_id
