@@ -39,6 +39,11 @@ class DotaAPI < SteamAPI
     uri = DotaAPI.dota_base_uri + "GetMatchDetails" + DotaAPI.version + DotaAPI.api_key + "&match_id=" + match_id
     DotaAPI.get_response(uri)
   end
+
+  def self.get_match_details_by_seq(seq_start=0)
+    uri = DotaAPI.dota_base_uri + "GetMatchHistoryBySequenceNum" + DotaAPI.version + DotaAPI.api_key + "&start_at_match_seq_num=" + seq_start.to_s
+    DotaAPI.get_response(uri)
+  end
 end
 
 class UserAPI < SteamAPI
