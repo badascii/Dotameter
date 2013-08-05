@@ -1,4 +1,5 @@
 namespace :dota do
+  #should call method that calls api to populate hero stats
   task :heroes => :environment do
     Hero.destroy_all
     heroes = DotaAPI.get_heroes["result"]["heroes"]
