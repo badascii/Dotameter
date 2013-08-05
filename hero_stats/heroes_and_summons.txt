@@ -445,6 +445,25 @@ Cast Duration
  0.3+0.51
 Base Attack Time
 1.6
+ Healing Ward
+
+
+ Duration
+ 25
+ Hit Points
+ 1
+ Armor
+ 0
+ Movement Speed
+ 300
+Sight Range
+ 500/500
+ Bounty
+ 0
+ Experience
+ 0
+ Notes
+ Healing Wards will not be attacked by neutral creeps.
 
  Mirana
 
@@ -1509,6 +1528,31 @@ Cast Duration
  0.3+1.07
 Base Attack Time
 1.7
+ Mass Serpent Ward
+
+
+ Duration
+ 45
+ Hit Points
+ 135/150/150
+ Damage
+ 40-45/55-60/70-75 (85-90/105-110/125-130*)
+ Armor
+
+Sight Range
+ 1200/800
+ Attack Range
+ 600
+ Missile Speed
+ 900
+ Attack Duration
+ 0.3+
+ Base Attack Time
+ 1.5
+ Bounty
+ 26-38
+ Experience
+ 31
 
  Slardar
 
@@ -1677,6 +1721,29 @@ Cast Duration
  0.35+0.52
 Base Attack Time
 1.7
+ Death Ward
+
+
+ Duration
+ 8 (Channelled)
+ Hit Points
+ 135
+ Damage
+ 60/90/120 (90/120/150*)
+ Armor
+ 0
+Sight Range
+ 1200/800
+ Attack Range
+ 700
+ Missile Speed
+ 1000
+ Base Attack Time
+ .25
+ Bounty
+ 0
+ Experience
+ 0
 
  Riki
 
@@ -1789,6 +1856,37 @@ Cast Duration
  0.3+0.51
 Base Attack Time
 1.7
+ Eidolon
+
+
+ Duration
+ 35 seconds
+ Hit Points
+ 180 / 200 / 220 / 240
+ Damage
+ 16-24 / 24-32 /34-42 / 43-51
+ Armor
+ 2 / 3 / 4 / 5
+ Movement Speed
+ 250 / 250 / 260 / 260
+Sight Range
+ 1200/800
+ Attack Range
+ 450
+ Missile Speed
+ 900
+ Attack Duration
+ 0.4+0.77
+ Cast Duration
+ 0.3+0.51
+ Base Attack Time
+ 1.5
+ Bounty
+ 22-36
+ Experience
+ 12
+ Notes
+ 50% magic resistance
 
  Tinker
 
@@ -2013,6 +2111,33 @@ Cast Duration
  0.5+0.5
 Base Attack Time
 1.7
+ Warlock's Golem
+
+
+ Duration
+ 60 seconds
+ Hit Points
+ 900 / 1200 / 1500 (675 / 900 / 1125*)
+ Damage
+ 75 / 100 / 125 (56 / 75 / 94*)
+ Armor
+ 5 / 7 / 10
+ Movement Speed
+ 320 / 340 / 360
+Sight Range
+ 1800/1800
+ Attack Range
+ Melee
+ Attack Duration
+ 0.26+
+ Base Attack Time
+ 1.35
+ Bounty
+ 100/150/200 (50/75/100*)
+ Experience
+ 98
+ Notes
+ 33% magic resistance.*With Aghanim's Scepter.
 
  Beastmaster
 
@@ -2069,6 +2194,54 @@ Cast Duration
  0.5+0.5
 Base Attack Time
 1.7
+ Scout/Greater Hawk
+
+
+ Duration
+ 60/70/80/80
+ Hit Points
+ 50/100
+ Armor
+ 0/5
+ Movement Speed
+ 270/400
+Sight Range
+ 500/1600 / 500/1200
+ Bounty
+ 30/30/65/65
+ Experience
+ 20/20/77/77
+ Notes
+ Possesses Invisibility as Greater Hawk
+ Lesser/Greater Boar
+
+
+ Duration
+ -/70/80/90
+ Hit Points
+ 400/500
+ Damage
+ 23-29/43-49
+ Armor
+ 0
+ Movement Speed
+ 350
+Sight Range
+ 1400/800
+ Attack Range
+ 550
+ Missile Speed
+ 1500
+ Attack Duration
+ 0.633+0.337
+ Base Attack Time
+ 1.5
+ Bounty
+ 26-38
+ Experience
+ 59
+ Notes
+ Possesses Poison
 
  Queen of Pain
 
@@ -2181,6 +2354,33 @@ Cast Duration
  0+0.51
 Base Attack Time
 1.7
+ Plague Ward
+
+
+ Duration
+ 40
+ Hit Points
+ 75/200/325/450
+ Damage
+ 9-11/17-21/26-32/34-42
+ Armor
+ 0
+ Movement Speed
+ 0
+Sight Range
+ 1200/1200
+ Attack Range
+ 600
+ Missile Speed
+ 1900
+ Attack Duration
+ 0.3+
+ Base Attack Time
+ 1.5
+ Bounty
+ 14-17
+ Experience
+ 12/12/25/25
 
  Faceless Void
 
@@ -2461,6 +2661,25 @@ Cast Duration
  0.2+0.51
 Base Attack Time
 1.7
+ Nether Ward
+
+
+ Duration
+ 25
+ Hit Points
+ 75/150/225/300
+ Damage
+ See skill description
+ Armor
+ 0
+Sight Range
+ 600/600
+ Base Attack Time
+ 1
+ Bounty
+ 20/40/60/80
+ Experience
+ 0
 
  Templar Assassin
 
@@ -2517,6 +2736,25 @@ Cast Duration
  0.3+0.51
 Base Attack Time
 1.7
+ Psionic Trap
+
+
+ Duration
+ Permanent
+ Hit Points
+ 100
+ Armor
+ 0
+ Movement Speed
+ 100
+Sight Range
+ 300/300
+ Bounty
+ 1
+ Experience
+ 12
+ Notes
+ Although a move speed of 100 is displayed in the game for Psionic Traps, they cannot move.
 
  Viper
 
@@ -2909,6 +3147,35 @@ Cast Duration
  0.5+1.17
 Base Attack Time
 1.7
+ Treant
+
+
+ Duration
+ 60 seconds
+ Hit Points
+ 550
+ Damage
+ 21-23
+ Armor
+ 0
+ Movement Speed
+ 300
+Sight Range
+ 1200/800
+ Attack Range
+ Melee
+ Attack Duration
+ 0.467+0.533
+ Cast Duration
+ 0.3+0.51
+ Base Attack Time
+ 1.75
+ Bounty
+ 21-26
+ Experience
+ 20
+ Notes
+ 20% magic resistance
 
  Lifestealer
 
@@ -3357,6 +3624,58 @@ Cast Duration
  0.2+0.51
 Base Attack Time
 1.7
+ Spiderling
+
+
+ Duration
+ 60 seconds
+ Hit Points
+ 450
+ Damage
+ 18-19
+ Armor
+ 0
+ Movement Speed
+ 350
+Sight Range
+ 1400/800
+ Attack Range
+ Melee
+ Attack Duration
+ 0.5+0.3
+ Base Attack Time
+ 1.35
+ Bounty
+ 11 - 13
+ Experience
+ 31
+ Notes
+ Possesses Poison StingPossesses Spawn Spiderite
+ Spiderite
+
+
+ Duration
+ 60 seconds
+ Hit Points
+ 175
+ Damage
+ 9-10
+ Armor
+ 0
+ Movement Speed
+ 350
+Sight Range
+ 1400/800
+ Attack Range
+ Melee
+ Attack Duration
+ 0.5+0.3
+ Base Attack Time
+ 1.35
+ Bounty
+ 16 - 21
+ Experience
+ 20
 
  Bounty Hunter
 
@@ -3469,6 +3788,27 @@ Cast Duration
  0.3+0.51
 Base Attack Time
 1.7
+ The Swarm
+
+
+ Duration
+ 8/12/16/20
+ Hit Points
+ 100
+ Damage
+ 15/20/25/30
+ Armor
+ 0
+ Movement Speed
+ 600
+Sight Range
+ 321/321
+ Base Attack Time
+ 1.35
+ Bounty
+ 32-34
+ Experience
+ 20
 
  Jakiro
 
@@ -3973,6 +4313,27 @@ Cast Duration
  0.3+0.5
 Base Attack Time
 1.7
+ Homing Missile
+
+
+ Duration
+ Permanent
+ Hit Points
+ 100
+ Damage
+ 50-110/50-220/50-330/50-440
+ Armor
+ 0
+ Movement Speed
+ 100
+Sight Range
+ 400/400
+ Bounty
+ 20-30
+ Experience
+ 20
+ Notes
+ Pre-flight time of 3 seconds
 
  Alchemist
 
@@ -4085,6 +4446,37 @@ Cast Duration
  0+0
 Base Attack Time
 1.7
+ Forged Spirit
+
+
+ Duration
+ 20 - 80 (Quas)
+ Hit Points
+ 300 - 900 (Exort)
+ Mana
+ 100 - 400 (Quas)
+ Damage
+ 29 - 83 (Exort)
+ Armor
+ 2 - 8 (Exort)
+ Movement Speed
+ 320
+Sight Range
+ 1200/800
+ Attack Range
+ 300 - 900 (Quas)
+ Missile Speed
+ 1000
+ Attack Duration
+ 0.2+0.4
+ Base Attack Time
+ 1.5
+ Bounty
+ 32-46
+ Experience
+ 31
+ Notes
+ Possess Melting Strike25% magic resistance
 
  Silencer
 
@@ -4253,6 +4645,33 @@ Cast Duration
  0.3+0.51
 Base Attack Time
 1.7
+ Lycan Wolf
+
+
+ Duration
+ 55 seconds
+ Hit Points
+ 200 / 240 / 280 / 320
+ Damage
+ 17-18 / 27-30 /34-40 / 43-49
+ Armor
+ 1 (Heavy)
+ Movement Speed
+ 400 / 420 / 440 / 460
+Sight Range
+ 1200/800
+ Attack Range
+ Melee
+ Attack Duration
+ 0.33+0.64
+ Base Attack Time
+ 1.25 / 1.2 / 1.15 / 1.1
+ Bounty
+ 21 / 26 / 36 / 41
+ Experience
+ 20
+ Notes
+ Level 2: Critical Strike.Level 4: Invisibility.50% magic resistance
 
  Brewmaster
 
@@ -4309,6 +4728,81 @@ Cast Duration
  0.4+0.5
 Base Attack Time
 1.7
+ Earth
+
+
+ Duration
+ 15/17/19 (20/23/26*)
+ Hit Points
+ 1500 / 2250 / 3000/ 3800
+ Mana
+ 400 / 500 / 600 / 600
+ Damage
+ 37-43 / 75-84 / 159-171 / 179-191 (Piercing damage)
+ Armor
+ 5 (Heavy Armor)
+ Movement Speed
+ 325
+Sight Range
+ 1800/800
+ Base Attack Time
+ 1.35
+ Bounty
+ 11-15/11-15/31-35/31-35*
+ Experience
+ 196/242/242/242*
+ Notes
+ Possesses Hurl Boulder, Spell Immunity, Pulverize, and Resistant Skin
+ Storm
+
+
+ Duration
+ 15/17/19 (20/23/26*)
+ Hit Points
+ 1000 / 1500 / 1500 / 2400
+ Mana
+ 500 / 750 / 750 / 750
+ Damage
+ 37-43 / 75-84 / 159-171 / 174-186 (Piercing damage)
+ Armor
+ 2 (Heavy Armor)
+ Movement Speed
+ 350
+Sight Range
+ 1800/800
+ Missile Speed
+ 1200
+ Base Attack Time
+ 1.5
+ Bounty
+ 11-15/11-15/31-35/31-35*
+ Experience
+ 196/242/242/242*
+ Notes
+ Possesses Dispel Magic, Cyclone, Wind Walk, and Resistant Skin
+ Fire
+
+
+ Duration
+ 15/17/19 (20/23/26*)
+ Hit Points
+ 1200 / 1200 / 1200 / 1200
+ Damage
+ 70 / 112 / 140 / 180
+ Armor
+ 0
+ Movement Speed
+ 522
+Sight Range
+ 1800/800
+ Base Attack Time
+ 1.35
+ Bounty
+ 11-15/11-15/31-35/31-35*
+ Experience
+ 196/242/242/242*
+ Notes
+ Possesses Permanent Immolation, and Resistant Skin
 
  Shadow Demon
 
@@ -4421,6 +4915,33 @@ Cast Duration
  0.5+1.17
 Base Attack Time
 1.7
+ Spirit Bear
+
+
+ Duration
+ Permanent
+ Hit Points
+ 1400 / 1800 / 2300 / 2700
+ Damage
+ 28-38
+ Armor
+ 3 / 4 / 5 / 6
+ Movement Speed
+ 320 / 320 / 320 / 320
+Sight Range
+ 1400/800
+ Attack Range
+ Melee
+ Attack Duration
+ 0.43+0.67
+ Base Attack Time
+ 1.75 / 1.65 / 1.55 / 1.45
+ Bounty
+ 300
+ Experience
+ 196
+ Notes
+ 6-slot inventory.Level 2: Return.Level 3: Entangling Claws.Level 4: Demolish.
 
  Chaos Knight
 
@@ -4701,6 +5222,50 @@ Cast Duration
  0.45+0.51
 Base Attack Time
 1.7
+ Tombstone
+
+
+ Duration
+ 15/20/25/30
+ Hit Points
+ 200/400/600/800
+ Armor
+ 4
+ Movement Speed
+ 0
+Sight Range
+ 1800/1800
+ Bounty
+ 70/90/110/130
+ Experience
+ 44
+ Zombie
+
+
+ Duration
+ 60
+ Hit Points
+ 30
+ Damage
+ 37-45
+ Armor
+ 0
+ Movement Speed
+ 375
+Sight Range
+ 1400/1400
+ Attack Range
+ Melee
+ Attack Duration
+ 0.3+0.3
+ Base Attack Time
+ 1.6
+ Bounty
+ 5-7
+ Experience
+ 25
+ Notes
+ Possesses DeathlustMagic Immune
 
  Rubick
 
@@ -5093,6 +5658,37 @@ Cast Duration
  0.4+1.1
 Base Attack Time
 1.7
+ Familiar
+
+
+ Duration
+ Until Killed
+ Hit Points
+ 300 / 450 / 600
+ Mana
+ -
+ Damage
+ 10 - 10
+ Armor
+ 0 - 2 (Hero)
+ Movement Speed
+ 380 / 390 / 400
+Sight Range
+ 390/390
+ Attack Range
+ 160
+ Missile Speed
+ 900
+ Attack Duration
+ 0.33+0.2
+ Base Attack Time
+ 0.4
+ Bounty
+ 100
+ Experience
+ 41
+ Notes
+ 96.25% magic resistance
 
  Slark
 

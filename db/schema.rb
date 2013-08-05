@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130804225541) do
+ActiveRecord::Schema.define(version: 20130805181135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20130804225541) do
     t.datetime "updated_at"
     t.integer  "valve_id"
     t.string   "name"
+    t.integer  "str"
+    t.integer  "agi"
+    t.integer  "int"
+    t.decimal  "str_per_lvl"
+    t.decimal  "agi_per_lvl"
+    t.decimal  "int_per_lvl"
+    t.integer  "hp"
+    t.integer  "mp"
+    t.integer  "min_dmg"
+    t.integer  "max_dmg"
+    t.decimal  "armor"
   end
 
   create_table "matches", force: true do |t|
