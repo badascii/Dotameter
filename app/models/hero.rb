@@ -1,5 +1,7 @@
 class Hero < ActiveRecord::Base
 
+  validates :name, :uniqueness => true, :presence => true
+
   # def self.heroes
   #   DotaAPI.get_heroes
   # end
