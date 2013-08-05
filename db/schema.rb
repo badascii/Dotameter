@@ -34,13 +34,6 @@ ActiveRecord::Schema.define(version: 20130805181135) do
     t.decimal  "armor"
   end
 
-  create_table "heros", force: true do |t|
-    t.string   "name"
-    t.decimal  "win_week"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "matches", force: true do |t|
     t.boolean  "radiant_win"
     t.integer  "valve_match_id"
