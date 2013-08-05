@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130802224916) do
+ActiveRecord::Schema.define(version: 20130804225541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20130802224916) do
     t.integer  "valve_seq_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "duration"
+    t.integer  "start_time",              limit: 8
+    t.integer  "tower_status_radiant"
+    t.integer  "tower_status_dire"
+    t.integer  "barracks_status_radiant"
+    t.integer  "barracks_status_dire"
   end
 
 end
