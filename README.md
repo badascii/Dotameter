@@ -15,6 +15,6 @@ individual players and teams as well as all of the in-game heroes and game modes
 
 #---
 
-* As of 5aug2013 - current match is around seq# 239,500,000
-* Beta release is around seq# _______
+* As of 5aug2013 - current match is around seq# 239_500_000
+* Beta release July 9th 0:08am -- is around seq# 215_706_100
 * New API release around seq# _______
