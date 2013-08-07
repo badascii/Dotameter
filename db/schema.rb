@@ -11,41 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805181135) do
+# ActiveRecord::Schema.define(version: 20130805181135) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+#   # These are extensions that must be enabled in order to support this database
+#   enable_extension "plpgsql"
 
-  create_table "heroes", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "valve_id"
-    t.string   "name"
-    t.integer  "str"
-    t.integer  "agi"
-    t.integer  "int"
-    t.decimal  "str_per_lvl"
-    t.decimal  "agi_per_lvl"
-    t.decimal  "int_per_lvl"
-    t.integer  "hp"
-    t.integer  "mp"
-    t.integer  "min_dmg"
-    t.integer  "max_dmg"
-    t.decimal  "armor"
-  end
+#   create_table "heroes", force: true do |t|
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
+#     t.integer  "valve_id"
+#     t.string   "name"
+#     t.integer  "str"
+#     t.integer  "agi"
+#     t.integer  "int"
+#     t.decimal  "str_per_lvl"
+#     t.decimal  "agi_per_lvl"
+#     t.decimal  "int_per_lvl"
+#     t.integer  "hp"
+#     t.integer  "mp"
+#     t.integer  "min_dmg"
+#     t.integer  "max_dmg"
+#     t.decimal  "armor"
+#   end
 
-  create_table "matches", force: true do |t|
-    t.boolean  "radiant_win"
-    t.integer  "valve_match_id"
-    t.integer  "valve_seq_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "duration"
-    t.integer  "start_time",              limit: 8
-    t.integer  "tower_status_radiant"
-    t.integer  "tower_status_dire"
-    t.integer  "barracks_status_radiant"
-    t.integer  "barracks_status_dire"
-  end
+#   create_table "matches", force: true do |t|
+#     t.boolean  "radiant_win"
+#     t.integer  "valve_match_id"
+#     t.integer  "valve_seq_id"
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
+#     t.integer  "duration"
+#     t.integer  "start_time",              limit: 8
+#     t.integer  "tower_status_radiant"
+#     t.integer  "tower_status_dire"
+#     t.integer  "barracks_status_radiant"
+#     t.integer  "barracks_status_dire"
+#   end
 
-end
+# end

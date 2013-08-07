@@ -1,17 +1,19 @@
-class Hero < ActiveRecord::Base
+class Hero
+  include Mongoid::Document
 
-  validates :name, :uniqueness => true, :presence => true
+  field  :name,        type: String
+  field  :str,         type: Integer
+  field  :agi,         type: Integer
+  field  :int,         type: Integer
+  field  :str_per_lvl, type: Decimal
+  field  :agi_per_lvl, type: Decimal
+  field  :int_per_lvl, type: Decimal
+  field  :hp,          type: Integer
+  field  :mp,          type: Integer
+  field  :min_dmg,     type: Integer
+  field  :max_dmg,     type: Integer
+  field  :armor,       type: Decimal
 
-  # def self.heroes
-  #   DotaAPI.get_heroes
-  # end
+  validates :name, presence: true, uniqueness: true
 
-  # def self.build_hero_list
-  #   ids = Hero.hero
-
-  #   ids.each do |id|
-  #     Hero.create(1)
-
-  #   end
-  # end
 end
