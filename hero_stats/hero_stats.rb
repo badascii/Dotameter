@@ -8,6 +8,7 @@ require 'pp'
 hero_list = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=STEAM_API_KEY').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
 f = File.open('hero_search.json', 'w')
   agent = Mechanize.new
+  hero_array = []
   hero_list.each do |hero|
     if hero.include?('_')
       hero = hero.split('_').each {|word| word.capitalize! }
@@ -44,7 +45,7 @@ f = File.open('hero_search.json', 'w')
     min_cast_duration_stats = cast_duration_stats[0].strip
     max_cast_duration_stats = cast_duration_stats[1].strip
     # infobox = {}
-    infobox = { (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip => {
+    hero = { (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip => {
                 str: str,
                 agi: agi,
                 int: int,
@@ -68,6 +69,7 @@ f = File.open('hero_search.json', 'w')
                 max_cast_duration_stats: max_cast_duration_stats,
                 base_attack_time: (@page.parser.css(".infobox tr tr td")[35].text).chomp.strip
                 }}
-    f << infobox
+        hero_array << hero
   end
+f << hero_array
 f.close
