@@ -16,4 +16,12 @@ class Hero
 
   validates :name, presence: true, uniqueness: true
 
+  def self.get_hero_data
+    hero_stats = []
+    File.open('../../hero_stats/hero_search.rb') do |f|
+      hero_stats << f
+    end
+    hero_stats
+  end
+
 end

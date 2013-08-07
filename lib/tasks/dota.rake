@@ -7,16 +7,16 @@ namespace :dota do
     Hero.destroy_all
   end
 
-  desc "fetches heroes from wiki and populates DB with heroes"
-  task :get_heroes => :environment do
-    heroes = DotaAPI.get_heroes["result"]["heroes"]
-    heroes.each do |hero|
-      new_hero = Hero.find_or_create_by!(name: hero["name"].gsub('npc_dota_hero_', ''))
-      new_hero.valve_id = hero["id"].to_i
-      display "#{new_hero.name} Saved!", :green if new_hero.save!
-    end
-    puts "Database seeded with " + Hero.all.length.to_s + " heroes."
-  end
+  # desc "fetches heroes from wiki and populates DB with heroes"
+  # task :get_heroes => :environment do
+  #   heroes = DotaAPI.get_heroes["result"]["heroes"]
+  #   heroes.each do |hero|
+  #     new_hero = Hero.find_or_create_by!(name: hero["name"].gsub('npc_dota_hero_', ''))
+  #     new_hero.valve_id = hero["id"].to_i
+  #     display "#{new_hero.name} Saved!", :green if new_hero.save!
+  #   end
+  #   puts "Database seeded with " + Hero.all.length.to_s + " heroes."
+  # end
 
 
   # should call method that calls api to populate hero stats
