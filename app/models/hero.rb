@@ -20,6 +20,7 @@ class Hero
   field :day_sight,        type: Integer
   field :night_sight,      type: Integer
   field :attack_range,     type: String
+  field :missle_speed,     type: String
   field :front_swing,      type: Float
   field :back_swing,       type: Float
   field :front_cast_time,  type: Float
