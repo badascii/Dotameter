@@ -46,7 +46,7 @@ def hero_list_json
         min_cast_duration_stats = cast_duration_stats[0].strip
         max_cast_duration_stats = cast_duration_stats[1].strip
         # infobox = {}
-        hero = { (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip => {
+        hero = {    "name" => (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip,
                     "str" => str,
                     "agi" => agi,
                     "int" => int,
@@ -69,10 +69,10 @@ def hero_list_json
                     "front_cast_time" => min_cast_duration_stats,
                     "back_cast_time" => max_cast_duration_stats,
                     "base_attack_time" => (@page.parser.css(".infobox tr tr td")[35].text).chomp.strip
-                    }}
+                    }
             hero_array << hero
       end
-    f << hero_array
+    f << hero_array.to_json
     f.close
 end
 @hero_list_2 = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=45C67218A2A02C9088D38B451BA49B64').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
