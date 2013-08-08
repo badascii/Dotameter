@@ -5,7 +5,9 @@ require 'nokogiri'
 require 'json'
 require 'pp'
 
-@hero_list = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=STEAM_API_KEY').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
+api_key = ENV["STEAM_API_KEY"]
+
+@hero_list = JSON.parse(open("http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=#{api_key}").read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
 def hero_list_json
     f = File.open('hero_search.json', 'w')
       agent = Mechanize.new
@@ -72,10 +74,10 @@ def hero_list_json
                     }
             hero_array << hero
       end
-    f << hero_array
+    f << hero_array.to_json
     f.close
 end
-@hero_list_2 = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=STEAM_API_KEY').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
+@hero_list_2 = JSON.parse(open("http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=#{api_key}").read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
 def hero_list_ruby
     f = File.open('hero_search.txt', 'w')
       agent = Mechanize.new
@@ -147,4 +149,4 @@ def hero_list_ruby
 end
 
 hero_list_json
-hero_list_ruby
+# hero_list_ruby
