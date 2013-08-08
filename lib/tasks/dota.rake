@@ -26,7 +26,7 @@ namespace :dota do
     FIRST_MATCH = 215_706_100
 
     # fetch according to initial release match number or last fetched
-    last_fetched_seq = DetailedMatch.last.match_seq_num.to_i unless DetailedMatch.empty?
+    last_fetched_seq = Match.last.match_seq_num.to_i unless Match.empty?
     last_fetched_seq ||= FIRST_MATCH
 
     begin
@@ -34,7 +34,7 @@ namespace :dota do
 
       returned_matches["matches"].each do |match|
 
-        detailed_match = DetailedMatch.find_or_initialize_by(match_id: match["match_id"].to_s)
+        detailed_match = Match.find_or_initialize_by(match_id: match["match_id"].to_s)
 
         if detailed_match.new_record?
 

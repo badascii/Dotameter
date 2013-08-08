@@ -1,4 +1,4 @@
-class DetailedMatch
+class Match
   include Mongoid::Document
 
   field :radiant_win,             type: Boolean
