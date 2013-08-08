@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'json'
 require 'pp'
 
-@hero_list = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=45C67218A2A02C9088D38B451BA49B64').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
+@hero_list = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=STEAM_API_KEY').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
 def hero_list_json
     f = File.open('hero_search.json', 'w')
       agent = Mechanize.new
@@ -47,17 +47,17 @@ def hero_list_json
         max_cast_duration_stats = cast_duration_stats[1].strip
         # infobox = {}
         hero = {    "name" => (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip,
-                    "str" => str,
-                    "agi" => agi,
-                    "int" => int,
-                    "str_per_lvl" => str_per_lvl,
-                    "agi_per_lvl" => agi_per_lvl,
-                    "int_per_lvl" => int_per_lvl,
-                    "hp" => (@page.parser.css(".infobox tr tr td")[1].text).chomp.strip,
-                    "mp" => (@page.parser.css(".infobox tr tr td")[5].text).chomp.strip,
-                    "min_dmg" => min_dmg,
-                    "max_dmg" => max_dmg,
-                    "armor" => (@page.parser.css(".infobox tr tr td")[13].text).chomp.strip,
+                    "str" => str.to_i,
+                    "agi" => agi.to_i,
+                    "int" => int.to_i,
+                    "str_per_lvl" => str_per_lvl.to_f,
+                    "agi_per_lvl" => agi_per_lvl.to_f,
+                    "int_per_lvl" => int_per_lvl.to_f,
+                    "hp" => (@page.parser.css(".infobox tr tr td")[1].text).chomp.strip.to_i,
+                    "mp" => (@page.parser.css(".infobox tr tr td")[5].text).chomp.strip.to_i,
+                    "min_dmg" => min_dmg.to_i,
+                    "max_dmg" => max_dmg.to_i,
+                    "armor" => (@page.parser.css(".infobox tr tr td")[13].text).chomp.strip.to_f,
                     "move_speed" => (@page.parser.css(".infobox tr tr td")[21].text).chomp.strip,
                     "turn_rate" => (@page.parser.css(".infobox tr tr td")[23].text).chomp.strip,
                     "day_sight" => day_sight,
@@ -72,10 +72,10 @@ def hero_list_json
                     }
             hero_array << hero
       end
-    f << hero_array.to_json
+    f << hero_array
     f.close
 end
-@hero_list_2 = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=45C67218A2A02C9088D38B451BA49B64').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
+@hero_list_2 = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=STEAM_API_KEY').read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
 def hero_list_ruby
     f = File.open('hero_search.txt', 'w')
       agent = Mechanize.new
