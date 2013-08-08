@@ -29,6 +29,8 @@ gem 'httparty'
 # nicely formats data, supposedly automatically
 gem 'active_model_serializers'
 
+# a collection of extensions for the database layer that enable paginated queries and view helpers
+gem 'will_paginate', '~> 3.0'
 #-----------------------------------------------------------------------
 
 # Haml-rails provides Haml generators for Rails

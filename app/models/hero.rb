@@ -58,14 +58,6 @@ class Hero
       h.radiant_team     = hero["radiant_team"]
       h.primary_stat     = hero["primary_stat"]
       h.str              = hero["str"].to_i
-      puts "$$$$$$$$$$"
-      puts hero["str"].to_i.class
-      puts h.str.class
-      puts "$$$$$$$"
-
-
-
-
       h.agi              = hero["agi"].to_i
       h.int              = hero["int"].to_i
       h.str_per_lvl      = hero["str_per_lvl"].to_f
