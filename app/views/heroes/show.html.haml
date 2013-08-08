@@ -1,3 +1,8 @@
 .hero{"ng-controller" => "heroCtrl"}
   %h2{"ng-model" => "hero.name"}
     = @hero.name
+    = @hero.primary_stat
+    %ul
+      %li= @hero.str
+      %li= @hero.agi
+      %li= @hero.int

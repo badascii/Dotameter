@@ -21,9 +21,9 @@ class Hero
   field :night_sight,      type: Integer
   field :attack_range,     type: String
   field :front_swing,      type: Float
-  field :back_swing,       type: FLoat
+  field :back_swing,       type: Float
   field :front_cast_time,  type: Float
-  field :back_cast_time    type: Float
+  field :back_cast_time,   type: Float
   field :base_attack_time, type: Float
 
   validates :name, presence: true, uniqueness: true
