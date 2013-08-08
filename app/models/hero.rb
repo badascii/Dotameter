@@ -39,4 +39,35 @@ class Hero
     hero_stats
   end
 
+  def self.build_heroes
+    heroes = Hero.get_hero_data
+    heroes.each do |hero|
+      Hero.create!(name: hero.keys.first,
+                   radiant_team:     hero[:radiant_team],
+                   primary_stat:     hero[:primary_stat],
+                   str:              hero[:str],
+                   agi:              hero[:agi],
+                   int:              hero[:int],
+                   str_per_lvl:      hero[:str_per_lvl],
+                   agi_per_lvl:      hero[:agi_per_lvl],
+                   int_per_lvl:      hero[:int_per_lvl],
+                   hp:               hero[:hp],
+                   mp:               hero[:mp],
+                   min_dmg:          hero[:min_dmg],
+                   max_dmg:          hero[:max_dmg],
+                   armor:            hero[:armor],
+                   move_speed:       hero[:move_speed],
+                   turn_rate:        hero[:turn_rate],
+                   day_sight:        hero[:day_sight],
+                   night_sight:      hero[:night_sight],
+                   attack_range:     hero[:attack_range],
+                   front_swing:      hero[:front_swing],
+                   back_swing:       hero[:back_swing],
+                   front_cast_time:  hero[:front_cast_time],
+                   back_cast_time:   hero[:back_cast_time],
+                   base_attack_time: hero[:base_attack_time],
+                   )
+    end
+  end
+
 end
