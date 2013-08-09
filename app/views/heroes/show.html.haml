@@ -2,7 +2,20 @@
   %h2{"ng-model" => "hero.name"}
     = @hero.name
     = @hero.primary_stat
+    %h4 Base stats:
     %ul
-      %li= @hero.str
-      %li= @hero.agi
-      %li= @hero.int
+      %li= "STR: " + @hero.str.to_s + " + " + @hero.str_per_lvl.to_s
+      %li= "AGI: " + @hero.agi.to_s + " + " + @hero.agi_per_lvl.to_s
+      %li= "INT: " + @hero.int.to_s + " + " + @hero.int_per_lvl.to_s
+      %li= "HP: " + @hero.hp.to_s
+      %li= "MP: " + @hero.mp.to_s
+      %li= "Damage: " + @hero.min_dmg.to_s + "-" + @hero.max_dmg.to_s
+      %li= "Armor: " + @hero.armor.to_s
+      %li= "Move Speed: " + @hero.move_speed
+      %li= "Turn Rate: " + @hero.turn_rate
+      %li= "Day/Night Vision: " + @hero.day_sight + "/" + @hero.night_sight.to_s
+      %li= "Attack: " + @hero.attack_range
+      %li= "Missile Speed: " + @hero.missile_speed
+      %li= "Attack Duration: " + @hero.front_swing + " + " + @hero.back_swing
+      %li= "Cast Duration: " + @hero.front_cast_time + " + " + @hero.back_cast_time
+      %li= "Base Attack Time: " + @hero.base_attack_time

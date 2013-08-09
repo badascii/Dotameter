@@ -20,7 +20,7 @@ class Hero
   field :day_sight,        type: String
   field :night_sight,      type: String
   field :attack_range,     type: String
-  field :missle_speed,     type: String
+  field :missile_speed,     type: String
   field :front_swing,      type: String
   field :back_swing,       type: String
   field :front_cast_time,  type: String
@@ -49,11 +49,8 @@ class Hero
   def self.build_heroes
     heroes = Hero.get_json_hero_data
     heroes.each do |hero|
-      puts hero
 
       h = Hero.find_or_initialize_by(name: hero["name"])
-      puts h
-      puts "$$$$" + h["str"].class.to_s
 
       h.radiant_team     = hero["radiant_team"]
       h.primary_stat     = hero["primary_stat"]
@@ -73,6 +70,7 @@ class Hero
       h.day_sight        = hero["day_sight"]
       h.night_sight      = hero["night_sight"]
       h.attack_range     = hero["attack_range"]
+      h.missile_speed    = hero["missile_speed"]
       h.front_swing      = hero["front_swing"]
       h.back_swing       = hero["back_swing"]
       h.front_cast_time  = hero["front_cast_time"]
