@@ -7,7 +7,8 @@ Dotameter::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  resources :heroes, only: [:show, :index]
+  resources :heroes, only: [:index, :show]
+  resources :matches, only: [:index, :show]
 
   # get '/heroes' => 'hero#index'
   # get '/heroes/:id' => 'hero#show'
