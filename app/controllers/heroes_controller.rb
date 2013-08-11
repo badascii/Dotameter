@@ -11,10 +11,12 @@ class HeroesController < ApplicationController
   private
 
   def set_hero
-    @hero = Hero.find(params[:id])
+    # FIXME: over_specified, written to mirror match_show for now
+    @hero = Hero.find_by(id: params[:id])
   end
 
   def hero_params
     params.require(:hero).permit(:name, :valve_id)
   end
+
 end
