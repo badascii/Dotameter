@@ -1,6 +1,5 @@
 %ul.heroes{"ng-controller" => "heroCtrl"}
-  / %li{"ng-repeat" => "hero in heroes"}
-  %ul
-    - @heroes.each do |hero|
-      %li{"ng-model" => "#{hero}"}= link_to hero.name, hero_path(hero)
-      / %a{"ng-href" => "/heroes/{{hero.id}}", "ng-click" => "getThisHero(hero.id)"} {{hero.name}}
+  %li{"ng-repeat" => "hero in heroes"}
+    // FIXME: using URL is hacky, should fix jbuilder to return ID and trust routes
+    %a{"ng-href" => "{{ hero.url }}"}
+      {{ hero.name }}
