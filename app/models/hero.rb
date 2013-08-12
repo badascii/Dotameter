@@ -2,6 +2,7 @@ class Hero
   include Mongoid::Document
 
   field :name,             type: String
+  field :valve_id          type: Integer
   field :radiant_team,     type: Boolean
   field :primary_stat,     type: String
   field :str,              type: Integer
@@ -20,7 +21,7 @@ class Hero
   field :day_sight,        type: String
   field :night_sight,      type: String
   field :attack_range,     type: String
-  field :missile_speed,     type: String
+  field :missile_speed,    type: String
   field :front_swing,      type: String
   field :back_swing,       type: String
   field :front_cast_time,  type: String
