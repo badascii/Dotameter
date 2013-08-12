@@ -1,5 +1,51 @@
-%ul.heroes{"ng-controller" => "heroCtrl"}
-  %li{"ng-repeat" => "hero in heroes"}
-    // FIXME: using URL is hacky, should fix jbuilder to return ID and trust routes
-    %a{"ng-href" => "{{ hero.url }}"}
-      {{ hero.name }}
+.hero-listing.page{"ng-controller" => "heroCtrl"}
+  .content
+    .content-inner-border
+      .row.hero-header
+        .row
+          Character Name
+        .row
+          Attack types, roles
+      .row.hero-filter
+        filter
+      .hero-icons
+        .row
+          .small-4.columns
+            %b
+              Strength
+          .small-4.columns
+            %b
+              Agility
+          .small-4.columns
+            %b
+              In telligence
+        .row
+          .small-4.columns
+            .row
+              radiant - strength
+            .row
+              dire - strength
+          .small-4.columns
+            .row
+              radiant - agility
+            .row
+              dire - agility
+          .small-4.columns
+            .row
+              radiant - intelligence
+            .row
+              dire - intelligence
+
+.row
+The @ heroes instance variable needs to contain additional meta data.
+Once Meta Data is present, we can sort the values into specific columns.
+
+
+.your-mom
+  .row
+    - @heroes.each do |hero|
+      %li= link_to hero.name, hero_path(hero)
+      %li= hero.str
+
+
+>>>>>>> 92303fc166d0f6aef8b01bbfa7a27f8fefddc97d
