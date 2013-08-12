@@ -1,5 +1,7 @@
 json.array!(@heroes) do |hero|
+  # FIXME: where the hell is the ID?!!
   json.extract! hero, :id,
+                      :valve_id,
                       :name,
                       :radiant_team,
                       :primary_stat,

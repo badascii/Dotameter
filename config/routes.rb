@@ -4,21 +4,19 @@ Dotameter::Application.routes.draw do
 
   root 'heroes#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get '/heroes' => 'heroes#index'
+  get 'heroes/:id', to: 'heroes#show'
 
-  resources :heroes, only: [:index, :show]
-  resources :matches, only: [:index, :show]
+  resources :heroes
+
+  get 'matches' => 'matches#index'
+  get 'matches/:match_id' => 'matches#show'
 
   # get '/heroes' => 'hero#index'
 
   # get '/heroes/:id' => 'hero#show'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :matches
 
   mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
 

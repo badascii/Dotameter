@@ -2,6 +2,7 @@ class Hero
   include Mongoid::Document
 
   field :name,             type: String
+  field :valve_id          type: Integer
   field :radiant_team,     type: Boolean
   field :primary_stat,     type: String
   field :str,              type: Integer
@@ -52,6 +53,8 @@ class Hero
 
       h = Hero.find_or_initialize_by(name: hero["name"])
 
+      # FIXME: add valve_id
+      # h.valve_id         = hero["valve_id"]
       h.radiant_team     = hero["radiant_team"]
       h.primary_stat     = hero["primary_stat"]
       h.str              = hero["str"].to_i
