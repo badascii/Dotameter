@@ -25,10 +25,10 @@ class DotaAPI < SteamAPI
     DotaAPI.base_uri + "IEconDOTA2_570/"
   end
 
-  # def self.get_heroes
-  #   uri = DotaAPI.dota_econ_base_uri + "GetHeroes" + DotaAPI.version + DotaAPI.api_key
-  #   DotaAPI.get_response(uri)
-  # end
+  def self.get_hero_ids
+    uri = DotaAPI.dota_econ_base_uri + "GetHeroes" + DotaAPI.version + DotaAPI.api_key
+    DotaAPI.get_response(uri)
+  end
 
   def self.get_match_history
     uri = DotaAPI.dota_base_uri + "GetMatchHistory" + DotaAPI.version + DotaAPI.api_key
