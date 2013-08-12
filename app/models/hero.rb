@@ -2,7 +2,7 @@ class Hero
   include Mongoid::Document
 
   field :name,             type: String
-  field :valve_id          type: Integer
+  field :valve_id,         type: Integer
   field :radiant_team,     type: Boolean
   field :primary_stat,     type: String
   field :str,              type: Integer
@@ -28,10 +28,10 @@ class Hero
   field :back_cast_time,   type: String
   field :base_attack_time, type: String
 
-  validates :name, presence: true, uniqueness: true
-  validates :str, presence: true, numericality: true
-  validates :agi, presence: true, numericality: true
-  validates :int, presence: true, numericality: true
+  validates :name, presence: true, uniqueness:   true
+  validates :str,  presence: true, numericality: true
+  validates :agi,  presence: true, numericality: true
+  validates :int,  presence: true, numericality: true
 
   def self.get_raw_hero_data
     File.read('hero_stats/hero_search.txt').each_line do |heroes|
