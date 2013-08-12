@@ -26,6 +26,13 @@ def hero_list_json
         else
           @page = agent.get("http://dota2.gamepedia.com/#{hero.capitalize}")
         end
+        role = @page.parser.css('.biobox tr td')[4].text.chomp
+        radiant_team = (@page.parser.css('.infobox tr th')[1].text.downcase.chomp.strip)
+        if radiant_team == "the radiant"
+            radiant_team = true
+        else
+            radiant_team = false
+        end
         str_stats = (@page.parser.css(".infobox tr th")[2].text).chomp.split('+')
         str = str_stats[0].strip
         str_per_lvl = str_stats[1].strip
@@ -49,6 +56,7 @@ def hero_list_json
         max_cast_duration_stats = cast_duration_stats[1].strip
         # infobox = {}
         hero = {    name: (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip,
+                    radiant_team: radiant_team,
                     str: str.to_i,
                     agi: agi.to_i,
                     int: int.to_i,
