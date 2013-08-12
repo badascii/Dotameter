@@ -1,1 +1,13 @@
-= @matches
+%ul.matches{"ng-controller" => "matchCtrl"}
+  / = will_paginate @matches
+  / %li{"ng-repeat" => "match in matches"}
+  /   %a{"ng-href" => "/matches/{{ match.match_id}}"}
+  /     {{ match.match_id }}
+  - @matches.each do |match|
+    %li{"ng-model" => "#{match}"}= link_to match.match_id, match_path(match.match_id)
+/ = @matches
+
+.digg_pagination
+  .page_info
+    = page_entries_info @matches
+  = will_paginate @matches, :container => false

@@ -26,9 +26,6 @@ gem 'figaro'
 # better, cleaner HTTP fetcher
 gem 'httparty'
 
-# nicely formats data, supposedly automatically
-gem 'active_model_serializers'
-
 # a collection of extensions for the database layer that enable paginated queries and view helpers
 gem 'will_paginate', '~> 3.0'
 #-----------------------------------------------------------------------
