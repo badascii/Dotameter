@@ -1,4 +1,35 @@
 json.array!(@heroes) do |hero|
-  json.extract! hero, :id, :name
+  json.extract! hero, :id,
+                      :name,
+                      :radiant_team,
+                      :primary_stat,
+                      :str,
+                      :agi,
+                      :int,
+                      :str_per_lvl,
+                      :agi_per_lvl,
+                      :int_per_lvl,
+                      :hp,
+                      :mp,
+                      :min_dmg,
+                      :max_dmg,
+                      :armor,
+                      :move_speed,
+                      :turn_rate,
+                      :day_sight,
+                      :night_sight,
+                      :attack_range,
+                      :missile_speed,
+                      :front_swing,
+                      :back_swing,
+                      :front_cast_time,
+                      :back_cast_time,
+                      :base_attack_time
   json.url hero_url(hero, format: :json)
 end
+
+
+
+
+
+

@@ -11,6 +11,7 @@ Dotameter::Application.routes.draw do
   resources :matches, only: [:index, :show]
 
   # get '/heroes' => 'hero#index'
+
   # get '/heroes/:id' => 'hero#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

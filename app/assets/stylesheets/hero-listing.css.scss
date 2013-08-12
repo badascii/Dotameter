@@ -1,0 +1,27 @@
+.hero-listing {
+  .content {
+    padding: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: 1px solid #35eeff;
+
+    .content-inner-border {
+
+      border: 5px solid black;
+
+
+      .hero-header {
+        border: 1px solid lime;
+      }
+
+      .hero-filter {
+        border: 1px solid black;
+      }
+
+      .hero-icons {
+        border: 1px solid blue;
+
+      }
+    }
+  }
+}

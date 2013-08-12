@@ -20,7 +20,7 @@ class Hero
   field :day_sight,        type: String
   field :night_sight,      type: String
   field :attack_range,     type: String
-  field :missile_speed,     type: String
+  field :missile_speed,    type: String
   field :front_swing,      type: String
   field :back_swing,       type: String
   field :front_cast_time,  type: String
