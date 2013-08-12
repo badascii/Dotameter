@@ -8,13 +8,6 @@ class MatchesController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
-    @matches = Match.all.paginate(page: 1, per_page: 2)
-  end
-
-  def index
-    @matches = Match.all.paginate(page: 1, per_page: 2)
-=======
     set_match
   end
 
@@ -27,7 +20,6 @@ class MatchesController < ApplicationController
 
   def to_param
     match_id
->>>>>>> ec12dd6d9f4dd2833eb39004874b337528d4482d
   end
 
   private
