@@ -27,7 +27,7 @@ json.array!(@heroes) do |hero|
                       :front_cast_time,
                       :back_cast_time,
                       :base_attack_time
-  json.url hero_url(hero, format: :json)
+  json.url hero_url(hero, format: :html)
 end
 
 
