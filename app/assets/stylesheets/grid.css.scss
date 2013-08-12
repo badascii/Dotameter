@@ -1,0 +1,21 @@
+.row {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  clear: both;
+}
+
+.column-33 {
+  width: 33.3%;
+  float: left;
+}
+
+.column-30 {
+  width: 29%;
+  float: left;
+}
+
+.column-70 {
+  width: 69%;
+  float: right;
+}
