@@ -2,6 +2,7 @@ class Hero
   include Mongoid::Document
 
   field :name,             type: String
+  field :valve_id          type: Integer
   field :radiant_team,     type: Boolean
   field :primary_stat,     type: String
   field :str,              type: Integer
