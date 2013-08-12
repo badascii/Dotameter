@@ -12,40 +12,53 @@
         .row
           .small-4.columns
             %b
-              Strength
+              %h1
+                Strength
           .small-4.columns
             %b
-              Agility
+              %h1
+                Agility
           .small-4.columns
             %b
-              In telligence
+              %h1
+                Intelligence
         .row
           .small-4.columns
             .row
-              radiant - strength
+              %h2
+                Radiant
+              %ul{"ng-repeat" => "hero in radiantStr"}
+                %li
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
             .row
-              dire - strength
+              %h2
+                Dire
+              %ul{"ng-repeat" => "hero in direStr"}
+                %li
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
           .small-4.columns
             .row
-              radiant - agility
+              %h2
+                Radiant
+              %ul{"ng-repeat" => "hero in radiantAgi"}
+                %li
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
             .row
-              dire - agility
+              %h2
+                Dire
+              %ul{"ng-repeat" => "hero in direAgi"}
+                %li
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
           .small-4.columns
             .row
-              radiant - intelligence
+              %h2
+                Radiant
+              %ul{"ng-repeat" => "hero in radiantInt"}
+                %li
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
             .row
-              dire - intelligence
-
-.row
-The @ heroes instance variable needs to contain additional meta data.
-Once Meta Data is present, we can sort the values into specific columns.
-
-
-.your-mom
-  .row
-    - @heroes.each do |hero|
-      %li= link_to hero.name, hero_path(hero)
-      %li= hero.str
-
-
->>>>>>> 92303fc166d0f6aef8b01bbfa7a27f8fefddc97d
+              %h2
+                Dire
+              %ul{"ng-repeat" => "hero in direInt"}
+                %li
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}

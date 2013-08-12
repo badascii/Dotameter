@@ -27,6 +27,15 @@ def hero_list_json
           @page = agent.get("http://dota2.gamepedia.com/#{hero.capitalize}")
         end
         role = @page.parser.css('.biobox tr td')[4].text.chomp
+        primary_stat = (@page.parser.css('p')[0].text.match(/Strength|Agility|Intelligence/i).to_s.downcase)
+        primary_stat = primary_stat.gsub(/strength/, "str")
+        primary_stat = primary_stat.gsub(/agility/, "agi")
+        primary_stat = primary_stat.gsub(/intelligence/, "int")
+        if hero.include?('tinker')
+            primary_stat = 'int'
+        elsif hero.include?('chen')
+            primary_stat = 'int'
+        end
         radiant_team = (@page.parser.css('.infobox tr th')[1].text.downcase.chomp.strip)
         if radiant_team == "the radiant"
             radiant_team = true
@@ -57,6 +66,7 @@ def hero_list_json
         # infobox = {}
         hero = {    name: (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip,
                     radiant_team: radiant_team,
+                    primary_stat: primary_stat,
                     str: str.to_i,
                     agi: agi.to_i,
                     int: int.to_i,
