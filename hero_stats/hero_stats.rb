@@ -28,10 +28,13 @@ def hero_list_json
         end
         role = @page.parser.css('.biobox tr td')[4].text.chomp
         primary_stat = (@page.parser.css('p')[0].text.match(/Strength|Agility|Intelligence/i).to_s.downcase)
+        primary_stat = primary_stat.gsub(/strength/, "str")
+        primary_stat = primary_stat.gsub(/agility/, "agi")
+        primary_stat = primary_stat.gsub(/intelligence/, "int")
         if hero.include?('tinker')
-            primary_stat = 'intelligence'
+            primary_stat = 'int'
         elsif hero.include?('chen')
-            primary_stat = "intelligence"
+            primary_stat = 'int'
         end
         radiant_team = (@page.parser.css('.infobox tr th')[1].text.downcase.chomp.strip)
         if radiant_team == "the radiant"
