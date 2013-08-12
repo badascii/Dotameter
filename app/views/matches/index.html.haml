@@ -3,8 +3,9 @@
 = paginate @matches.page(params[:page])
 
 %ul.matches{"ng-controller" => "matchCtrl"}
-  - @matches.each do |match|
-    %li{"ng-model" => ""}= link_to match.match_id, match_path(match.match_id)
+  - @matches.each do |rails_match|
+    %li{"ng-model" => "matches.#{rails_match.match_id}"}
+      = link_to rails_match.match_id, match_path(rails_match.match_id)
 
 / %ul.matches{"ng-controller" => "matchCtrl"}
 /   %li{"ng-repeat" => "match in matches"}
