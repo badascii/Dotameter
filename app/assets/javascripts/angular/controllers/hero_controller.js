@@ -8,6 +8,10 @@ app.controller('heroCtrl', function($scope, $http) {
   $scope.direStr = [];
   $scope.direInt = [];
 
+  // Initialize empty Character name for the Header
+  $scope.characterName = 'Choose a Character';
+
+
   // This function populates the heroes scope.
   $scope.heroes = $http.get('/heroes').success(function(data) {
     // Set the heroes var.
