@@ -1,3 +1,10 @@
+
+
+/%div{"ng-include", :src => "'_hero_partial.html.haml'"}
+/ <div ng-include src="_hero_partial.html.haml"></div>
+
+%hr
+
 .hero-listing.page{"ng-controller" => "heroCtrl"}
   .content
     .content-inner-border
@@ -20,8 +27,7 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantStr"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
-                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             .row
               %b
@@ -31,8 +37,7 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantAgi"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
-                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             .row
               %b
@@ -42,8 +47,7 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantInt"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
-                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
         .row
           .large-4.columns
             .row
@@ -54,8 +58,7 @@
                 Dire
               %div{"ng-repeat" => "hero in direStr"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
-                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             %b
               %h1
@@ -64,8 +67,7 @@
               Dire
             %div{"ng-repeat" => "hero in direAgi"}
               .hero-icons
-                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
-                / %a{"ng-href" => "{{hero.url}}"}
+                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             %b
               %h1
@@ -74,7 +76,5 @@
               Dire
             %div{"ng-repeat" => "hero in direInt"}
               .hero-icons
-                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
-                / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
+                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)",  "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
 
-/ %div{"ng-include" => "", :src => "_hero_partial.html.haml"}

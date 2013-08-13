@@ -64,13 +64,21 @@ app.controller('heroCtrl', function($scope, $http) {
     }
   };
 
-  // Is attached to all characters on the index page. Will fire on mouseOver.
-  $scope.showCharDetails = function($event) {
-    // console.log();
-    $scope.characterName = $($event.target).attr('data-heroName');
+  // redirects to hero show page when hero img is clicked
+  $scope.showHero = function($event) {
+    $(location).attr('href', $($event.target).attr('data-heroUrl'));
   };
 
+  // Is attached to all characters on the index page. Will toggle on mouseOver/mouseOut
+  $scope.toggleCharDetails = function($event) {
+    var heroBox = $($event.target);
 
+    if ($scope.characterName == heroBox.attr('data-heroName')) {
+      $scope.characterName = 'Choose a character';
+    } else {
+      $scope.characterName = heroBox.attr('data-heroName');
+    }
+  };
 });
 
 
