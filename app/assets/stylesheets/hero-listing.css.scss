@@ -21,12 +21,19 @@
 
         .hero-icons {
           width: 96%;
-          height: 50px;
+          height: 70px;
           margin-top: 2px;
           margin-left: 2%;
           margin-right: 2%;
 
           background-color: lime;
+
+          img {
+            border: 2px solid black;
+            border-radius: 3px;
+            height: 70px;
+
+          }
         }
       }
     }
