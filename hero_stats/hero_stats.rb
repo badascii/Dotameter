@@ -8,6 +8,8 @@ require 'pp'
 api_key = ENV["STEAM_API_KEY"]
 
 @hero_list = JSON.parse(open("http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=#{api_key}").read)["result"]["heroes"].map { |hero| hero["name"].gsub(/npc_dota_hero_/, "") }
+@id = JSON.parse(open('http://api.steampowered.com/IEconDOTA2_570/GetHeroes/v1/?key=45C67218A2A02C9088D38B451BA49B64').read)["result"]["heroes"].map { |hero| hero["id"] }
+@id = @id.reverse
 def hero_list_json
     f = File.open('hero_search.json', 'w')
       agent = Mechanize.new
@@ -26,7 +28,10 @@ def hero_list_json
         else
           @page = agent.get("http://dota2.gamepedia.com/#{hero.capitalize}")
         end
-        role = @page.parser.css('.biobox tr td')[4].text.chomp
+        role = @page.parser.css('.biobox tr td')[4].text.chomp.split('/')
+        role.each do |role|
+          role.strip!
+        end
         primary_stat = (@page.parser.css('p')[0].text.match(/Strength|Agility|Intelligence/i).to_s.downcase)
         primary_stat = primary_stat.gsub(/strength/, "str")
         primary_stat = primary_stat.gsub(/agility/, "agi")
@@ -65,6 +70,7 @@ def hero_list_json
         max_cast_duration_stats = cast_duration_stats[1].strip
         # infobox = {}
         hero = {    name: (@page.parser.css(".infobox tr th")[0].text).chomp.to_s.strip,
+                    valve_id: @id,
                     radiant_team: radiant_team,
                     primary_stat: primary_stat,
                     str: str.to_i,
@@ -88,7 +94,8 @@ def hero_list_json
                     back_swing: max_attack_duration_stats,
                     front_cast_time: min_cast_duration_stats,
                     back_cast_time: max_cast_duration_stats,
-                    base_attack_time: (@page.parser.css(".infobox tr tr td")[35].text).chomp.strip
+                    base_attack_time: (@page.parser.css(".infobox tr tr td")[35].text).chomp.strip,
+                    role: role
                     }
             hero_array << hero
       end
