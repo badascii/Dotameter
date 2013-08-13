@@ -27,7 +27,7 @@ class Hero
   field :front_cast_time,  type: String
   field :back_cast_time,   type: String
   field :base_attack_time, type: String
-  field :icon_url,         type: String
+  field :icon,             type: String
 
   validates :name, presence: true, uniqueness:   true
   validates :str,  presence: true, numericality: true
@@ -48,12 +48,8 @@ class Hero
   end
 
   def self.get_icon(hero_name)
-    hero = hero_name.downcase.gsub("-", "")
-    "app/assets/images/#{hero}_full.png"
-  end
-
-  def self.get_valve_id
-    DotaAPI.get_hero_ids
+    hero = hero_name.downcase.gsub("-", "").gsub(" ", "_")
+    "app/assets/images/hero_portraits/#{hero}_full.png"
   end
 
   def self.build_heroes
@@ -62,8 +58,7 @@ class Hero
 
       h = Hero.find_or_initialize_by(name: hero["name"])
 
-      # FIXME: add valve_id
-      h.valve_id         =
+      h.valve_id         = hero["valve_id"]
       h.radiant_team     = hero["radiant_team"]
       h.primary_stat     = hero["primary_stat"]
       h.str              = hero["str"].to_i
@@ -88,7 +83,7 @@ class Hero
       h.front_cast_time  = hero["front_cast_time"]
       h.back_cast_time   = hero["back_cast_time"]
       h.base_attack_time = hero["base_attack_time"]
-      h.icon_url         = Hero.get_icon(hero["name"])
+      h.icon             = Hero.get_icon(h.name)
 
       h.save!
     end
