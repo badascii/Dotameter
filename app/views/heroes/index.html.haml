@@ -19,7 +19,7 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantStr"}
                 .hero-icons
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
           .large-4.columns
             .row
               %b
@@ -29,7 +29,7 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantAgi"}
                 .hero-icons
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
           .large-4.columns
             .row
               %b
@@ -39,7 +39,7 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantInt"}
                 .hero-icons
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
         .row
           .large-4.columns
             .row
@@ -50,7 +50,7 @@
                 Dire
               %div{"ng-repeat" => "hero in direStr"}
                 .hero-icons
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
           .large-4.columns
             %b
               %h1
@@ -59,7 +59,7 @@
               Dire
             %div{"ng-repeat" => "hero in direAgi"}
               .hero-icons
-                %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+                %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
           .large-4.columns
             %b
               %h1
@@ -68,4 +68,4 @@
               Dire
             %div{"ng-repeat" => "hero in direInt"}
               .hero-icons
-                %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+                %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
