@@ -3,6 +3,8 @@ class Hero
 
   field :name,             type: String
   field :valve_id,         type: Integer
+  field :wins,             type: Integer, default: 0
+  field :losses,           type: Integer, default: 0
   field :radiant_team,     type: Boolean
   field :primary_stat,     type: String
   field :str,              type: Integer
