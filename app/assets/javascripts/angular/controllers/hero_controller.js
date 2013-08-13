@@ -60,6 +60,12 @@ app.controller('heroCtrl', function($scope, $http) {
     }
   };
 
+  // Is attached to all characters on the index page. Will fire on mouseOver.
+  $scope.showCharDetails = function() {
+
+  };
+
+
 });
 
 
