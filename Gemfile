@@ -26,8 +26,7 @@ gem 'figaro'
 # better, cleaner HTTP fetcher
 gem 'httparty'
 
-# a collection of extensions for the database layer that enable paginated queries and view helpers
-gem 'will_paginate', '~> 3.0'
+gem 'kaminari'
 #-----------------------------------------------------------------------
 
 # Haml-rails provides Haml generators for Rails
