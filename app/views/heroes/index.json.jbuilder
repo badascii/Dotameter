@@ -1,5 +1,4 @@
 json.array!(@heroes) do |hero|
-  # FIXME: where the hell is the ID?!!
   json.extract! hero, :id,
                       :valve_id,
                       :name,
@@ -28,7 +27,7 @@ json.array!(@heroes) do |hero|
                       :back_cast_time,
                       :base_attack_time,
                       :icon
-  json.url hero_url(hero, format: :html)
+  json.url hero_url(hero.name, format: :html)
 end
 
 

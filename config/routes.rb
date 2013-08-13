@@ -4,13 +4,15 @@ Dotameter::Application.routes.draw do
 
   root 'heroes#index'
 
+  get '/heroes/:name' => 'heroes#show'
   resources :heroes, only: [:show, :index]
+
   resources :matches, only: [:show, :index]
+
   # get 'matches' => 'matches#index'
   # get 'matches/:match_id' => 'matches#show'
 
   # get '/heroes' => 'hero#index'
-
   # get '/heroes/:id' => 'hero#show'
 
   mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
