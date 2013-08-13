@@ -8,16 +8,24 @@ app.controller('heroCtrl', function($scope, $http) {
   $scope.direStr = [];
   $scope.direInt = [];
 
+  // This function populates the heroes scope.
   $scope.heroes = $http.get('/heroes').success(function(data) {
     // Set the heroes var.
     $scope.heroes = data;
+    setHeroArrays(data);
+  }).error(function(data) {
+    console.log('Rails is not returning /heroes.');
+  });
 
-    // Loop through each of these Heroes, pushing them into the correct arrays to display them in.
+  // This function will loop through the json passed to it pushing it onto the correct
+  // array based on its .radiant_team.
+  var setHeroArrays = function(data) {
+    // Loop through each of these Heroes, pushing them into the correct display arrays.
     for (var i = 0, max = data.length; i < max; i++) {
       var thisObj = data[i];
       // Radiant Chars
       if(thisObj.radiant_team === true) {
-        // push these objects onto the Radiant strength, Agility, Intelligence array
+        // push these objects onto the Radiant strength, Agility, Intelligence array.
         switch(thisObj.primary_stat) {
           case 'agi':
             // Push onto the Radiant Agility array.
@@ -33,7 +41,7 @@ app.controller('heroCtrl', function($scope, $http) {
             break;
         }
       } else { // Dire Chars
-        // push these objects onto the Dire strength, Agility, Intelligence array
+        // Push these objects onto the Dire strength, Agility, Intelligence array.
         switch(thisObj.primary_stat) {
           case 'agi':
             // Push onto the Dire Agility array.
@@ -50,6 +58,8 @@ app.controller('heroCtrl', function($scope, $http) {
         }
       }
     }
-  });
+  };
 
 });
+
+
