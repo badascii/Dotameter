@@ -25,10 +25,18 @@ class DotaAPI < SteamAPI
     DotaAPI.base_uri + "IEconDOTA2_570/"
   end
 
-  def self.get_hero_ids
-    uri = DotaAPI.dota_econ_base_uri + "GetHeroes" + DotaAPI.version + DotaAPI.api_key
-    DotaAPI.get_response(uri)
-  end
+  # def self.get_valve_hero_ids
+  #   uri = DotaAPI.dota_econ_base_uri + "GetHeroes" + DotaAPI.version + DotaAPI.api_key
+  #   response = DotaAPI.get_response(uri)
+  #   hero_array = response["result"]["heroes"]
+  #   hero_hash = {}
+
+  #   hero_array.each do |hero|
+  #     name = hero["name"].gsub("npc_dota_hero_", "").gsub("_", " ").titleize
+  #     hero_hash[name] = hero["id"]
+  #   end
+  #   hero_hash
+  # end
 
   def self.get_match_history
     uri = DotaAPI.dota_base_uri + "GetMatchHistory" + DotaAPI.version + DotaAPI.api_key
