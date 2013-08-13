@@ -7,58 +7,65 @@
         .row
           Attack types, roles
       .row.hero-filter
-        filter
-      .hero-icons
+        filter by role, Attack Type, By Name
+      .heroes
         .row
-          .small-4.columns
-            %b
-              %h1
-                Strength
-          .small-4.columns
+          .large-4.columns
+            .row
+              %b
+                %h1
+                  Strength
+              %h2
+                Radiant
+              %div{"ng-repeat" => "hero in radiantStr"}
+                .hero-icons
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+          .large-4.columns
+            .row
+              %b
+                %h1
+                  Agility
+              %h2
+                Radiant
+              %div{"ng-repeat" => "hero in radiantAgi"}
+                .hero-icons
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+          .large-4.columns
+            .row
+              %b
+                %h1
+                  Intelligence
+              %h2
+                Radiant
+              %div{"ng-repeat" => "hero in radiantInt"}
+                .hero-icons
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+        .row
+          .large-4.columns
+            .row
+              %b
+                %h1
+                  Strength
+              %h2
+                Dire
+              %div{"ng-repeat" => "hero in direStr"}
+                .hero-icons
+                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+          .large-4.columns
             %b
               %h1
                 Agility
-          .small-4.columns
+            %h2
+              Dire
+            %div{"ng-repeat" => "hero in direAgi"}
+              .hero-icons
+                %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+          .large-4.columns
             %b
               %h1
                 Intelligence
-        .row
-          .small-4.columns
-            .row
-              %h2
-                Radiant
-              %ul{"ng-repeat" => "hero in radiantStr"}
-                %li
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
-            .row
-              %h2
-                Dire
-              %ul{"ng-repeat" => "hero in direStr"}
-                %li
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
-          .small-4.columns
-            .row
-              %h2
-                Radiant
-              %ul{"ng-repeat" => "hero in radiantAgi"}
-                %li
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
-            .row
-              %h2
-                Dire
-              %ul{"ng-repeat" => "hero in direAgi"}
-                %li
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
-          .small-4.columns
-            .row
-              %h2
-                Radiant
-              %ul{"ng-repeat" => "hero in radiantInt"}
-                %li
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
-            .row
-              %h2
-                Dire
-              %ul{"ng-repeat" => "hero in direInt"}
-                %li
-                  %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
+            %h2
+              Dire
+            %div{"ng-repeat" => "hero in direInt"}
+              .hero-icons
+                %a{"ng-href" => "{{hero.url}}"}{{hero.name}}
