@@ -7,10 +7,11 @@ Dotameter::Application.routes.draw do
   get '/heroes/:name' => 'heroes#show'
   resources :heroes, only: [:show, :index]
 
+  get '/matches' => 'matches#index'
+  get '/matches/:match_id' => 'matches#show'
+
   resources :matches, only: [:show, :index]
 
-  # get 'matches' => 'matches#index'
-  # get 'matches/:match_id' => 'matches#show'
 
   # get '/heroes' => 'hero#index'
   # get '/heroes/:id' => 'hero#show'
