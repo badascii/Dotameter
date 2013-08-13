@@ -8,6 +8,10 @@ app.controller('heroCtrl', function($scope, $http) {
   $scope.direStr = [];
   $scope.direInt = [];
 
+  // Initialize empty Character name for the Header
+  $scope.characterName = 'Choose a Character';
+
+
   // This function populates the heroes scope.
   $scope.heroes = $http.get('/heroes').success(function(data) {
     // Set the heroes var.
@@ -61,8 +65,9 @@ app.controller('heroCtrl', function($scope, $http) {
   };
 
   // Is attached to all characters on the index page. Will fire on mouseOver.
-  $scope.showCharDetails = function() {
-
+  $scope.showCharDetails = function($event) {
+    // console.log();
+    $scope.characterName = $($event.target).attr('data-heroName');
   };
 
 
