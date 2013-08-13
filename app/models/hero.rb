@@ -49,7 +49,7 @@ class Hero
 
   def self.get_icon(hero_name)
     hero = hero_name.downcase.gsub("-", "").gsub(" ", "_")
-    "app/assets/images/hero_portraits/#{hero}_full.png"
+    "/assets/hero_portraits/#{hero}_full.png"
   end
 
   def self.build_heroes
