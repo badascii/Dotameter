@@ -26,7 +26,8 @@ json.array!(@heroes) do |hero|
                       :back_swing,
                       :front_cast_time,
                       :back_cast_time,
-                      :base_attack_time
+                      :base_attack_time,
+                      :icon
   json.url hero_url(hero, format: :html)
 end
 
