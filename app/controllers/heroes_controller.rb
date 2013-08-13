@@ -12,7 +12,7 @@ class HeroesController < ApplicationController
 
   def set_hero
     # FIXME: over_specified, written to mirror match_show for now
-    @hero = Hero.find_by(id: params[:id])
+    @hero = Hero.find_by(name: params[:name])
   end
 
   def hero_params
