@@ -3,7 +3,7 @@
     .content-inner-border
       .row.hero-header
         .row
-          Character Name
+          {{characterName}}
         .row
           Attack types, roles
       .row.hero-filter
@@ -19,8 +19,8 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantStr"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}"}
-                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
+                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
           .large-4.columns
             .row
               %b
@@ -30,8 +30,8 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantAgi"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}"}
-                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
+                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
           .large-4.columns
             .row
               %b
@@ -41,8 +41,8 @@
                 Radiant
               %div{"ng-repeat" => "hero in radiantInt"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}"}
-                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
+                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
         .row
           .large-4.columns
             .row
@@ -53,8 +53,8 @@
                 Dire
               %div{"ng-repeat" => "hero in direStr"}
                 .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}"}
-                  %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
+                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
+                  / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
           .large-4.columns
             %b
               %h1
@@ -63,8 +63,8 @@
               Dire
             %div{"ng-repeat" => "hero in direAgi"}
               .hero-icons
-                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}"}
-                %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
+                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
+                / %a{"ng-href" => "{{hero.url}}"}
           .large-4.columns
             %b
               %h1
@@ -73,7 +73,7 @@
               Dire
             %div{"ng-repeat" => "hero in direInt"}
               .hero-icons
-                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}"}
-                %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}{{hero.name}}
+                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "showCharDetails($event)", "data-heroName" => "{{hero.name}}"}
+                / %a{"ng-href" => "{{hero.url}}", "ng-mouseover" => "showCharDetails()"}
 
 / %div{"ng-include" => "", :src => "_hero_partial.html.haml"}
