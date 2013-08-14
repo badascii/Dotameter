@@ -69,8 +69,9 @@
       player_slot:
       {{ player.player_slot }}
     %li
-      hero_id:
-      {{ player.hero_id }}
+      hero_name:
+      %a{"href" => "{{ player.hero_url }}"}
+        {{ player.hero_name }}
       %li
         item_0:
         {{ player.item_0 }}
