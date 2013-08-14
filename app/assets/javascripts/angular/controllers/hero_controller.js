@@ -33,44 +33,83 @@ app.controller('heroCtrl', function($scope, $http) {
         switch(thisObj.primary_stat) {
           case 'agi':
             // Push onto the Radiant Agility array.
-            $scope.radiantAgi.push(thisObj);
+            inGroupsOf(thisObj, $scope.radiantAgi, 4);
             break;
+
           case 'str':
             // Push onto the Radiant Strength array.
-            $scope.radiantStr.push(thisObj);
+            inGroupsOf(thisObj, $scope.radiantStr, 4);
             break;
+
           case 'int':
             // Push onto the Radiant Intelligence array.
-            $scope.radiantInt.push(thisObj);
+            inGroupsOf(thisObj, $scope.radiantInt, 4);
             break;
         }
       } else { // Dire Chars
         // Push these objects onto the Dire strength, Agility, Intelligence array.
         switch(thisObj.primary_stat) {
+
           case 'agi':
             // Push onto the Dire Agility array.
-            $scope.direAgi.push(thisObj);
+            inGroupsOf(thisObj, $scope.direAgi, 4);
             break;
+
           case 'str':
             // Push onto the Dire Strength array.
-            $scope.direStr.push(thisObj);
+            inGroupsOf(thisObj, $scope.direStr, 4);
             break;
+
           case 'int':
             // Push onto the Dire Intelligence array.
-            $scope.direInt.push(thisObj);
+            inGroupsOf(thisObj, $scope.direInt, 4);
             break;
         }
       }
     }
   };
 
-  // Is attached to all characters on the index page. Will fire on mouseOver.
-  $scope.showCharDetails = function($event) {
-    // console.log();
-    $scope.characterName = $($event.target).attr('data-heroName');
+  // When called, will make a nested array of arrays containing objects.
+  // The length of the groupings is determined by the groups variable.
+  // Data is the thing to attach.
+  // Receiver will receive the data.
+  // Groups determines the length of the second level arrays.
+  var inGroupsOf = function(data, receiver, groups) {
+    // FIXME: error handling for incorrectly called function, ie. Not enough arguments.
+    // If the receiver was recently initialized and is empty
+    if (receiver.length === 0) {
+      // Push on an empty array
+      receiver.push([]);
+      // Push the data onto the end of that array (the last array)
+      receiver[receiver.length - 1].push(data);
+    } else {
+      // If the receiver's last array is already full of data
+      if (receiver[receiver.length - 1].length % groups === 0) {
+        // Push a new array onto the end of the receiver
+        receiver.push([]);
+        // Append the data into the last array of the receiver
+        receiver[receiver.length - 1].push(data);
+      }
+      else {
+        // Append the data into the last array of the receiver
+        receiver[receiver.length - 1].push(data);
+      }
+    }
   };
 
+  // redirects to hero show page when hero img is clicked
+  $scope.showHero = function($event) {
+    $(location).attr('href', $($event.target).attr('data-heroUrl'));
+  };
 
+  // Is attached to all characters on the index page. Will toggle on mouseOver/mouseOut
+  $scope.toggleCharDetails = function($event) {
+    var heroBox = $($event.target);
+
+    if ($scope.characterName == heroBox.attr('data-heroName')) {
+      $scope.characterName = 'Choose a character';
+    } else {
+      $scope.characterName = heroBox.attr('data-heroName');
+    }
+  };
 });
-
-
