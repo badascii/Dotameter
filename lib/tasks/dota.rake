@@ -28,4 +28,9 @@ namespace :dota do
   # task :get_lastest_matches do
   #   Rake::Task[:get_matches].invoke(Match.last.match_seq_num)
   # end
+
+  desc "creates/updates static hero stats"
+  task :get_heroes => [:environment] do
+    DB.build_heroes(DB.get_json_hero_data)
+  end
 end

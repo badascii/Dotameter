@@ -18,9 +18,8 @@ module DB
     "/assets/hero_portraits/#{hero}_full.png"
   end
 
-  def self.build_heroes
-    heroes = Hero.get_json_hero_data
-    heroes.each do |hero|
+  def self.build_heroes(hero_array)
+    hero_array.each do |hero|
 
       h = Hero.find_or_initialize_by(name: hero["name"])
 
@@ -49,10 +48,16 @@ module DB
       h.front_cast_time  = hero["front_cast_time"]
       h.back_cast_time   = hero["back_cast_time"]
       h.base_attack_time = hero["base_attack_time"]
-      h.icon             = Hero.get_icon(h.name)
+      h.icon             = DB.get_icon(h.name)
 
       h.save!
+
+      puts "Hero saved: #{h.name}" if h.save!
     end
+    puts "--------------"
+    puts "TASK COMPLETED"
+    puts "--------------"
+
   end
 
     def self.hero_win_rate(match_seq_num=215706101, limit=100)
