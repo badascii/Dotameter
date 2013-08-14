@@ -96,7 +96,35 @@ module DB
     Match.last
   end
 
-  def self.build_matches(seq_start=215_706_100)
+  def self.build_match(match, match_data)
+    match.radiant_win             = match_data["radiant_win"]
+    match.duration                = match_data["duration"]
+    match.start_time              = match_data["start_time"]
+    match.match_id                = match_data["match_id"]
+    match.match_seq_num           = match_data["match_seq_num"]
+    match.tower_status_radiant    = match_data["tower_status_radiant"]
+    match.tower_status_dire       = match_data["tower_status_dire"]
+    match.barracks_status_radiant = match_data["barracks_status_radiant"]
+    match.barracks_status_dire    = match_data["barracks_status_dire"]
+    match.cluster                 = match_data["cluster"]
+    match.first_blood_time        = match_data["first_blood_time"]
+    match.lobby_type              = match_data["lobby_type"]
+    match.human_players           = match_data["human_players"]
+    match.leagueid                = match_data["leagueid"]
+    match.positive_votes          = match_data["positive_votes"]
+    match.negative_votes          = match_data["negative_votes"]
+    match.game_mode               = match_data["game_mode"]
+    match.players                 = match_data["players"]
+
+    # FIXME: untested, find a tournament return to make sure shape is correct
+    match.picks_bans              = match_data["picks_bans"]
+
+    match.save!
+
+    puts "Saved Match #{match.match_seq_num}" if match.save!
+  end
+
+  def self.get_matches(seq_start=215_706_100)
 
     # fetch according to initial release match number or last fetched
     last_fetched_seq = Match.last.match_seq_num.to_i unless Match.empty?
@@ -104,41 +132,15 @@ module DB
 
     begin
       returned_matches = DotaAPI.get_match_details_by_seq(last_fetched_seq + 1)["result"]
+      returned_matches["matches"].each do |match_data|
 
-      returned_matches["matches"].each do |match|
+        match = Match.find_or_initialize_by(match_id: match_data["match_id"].to_s)
 
-        detailed_match = Match.find_or_initialize_by(match_id: match["match_id"].to_s)
-
-        if detailed_match.new_record?
-
-          detailed_match["radiant_win"]             = match["radiant_win"]
-          detailed_match["duration"]                = match["duration"]
-          detailed_match["start_time"]              = match["start_time"]
-          detailed_match["match_id"]                = match["match_id"]
-          detailed_match["match_seq_num"]           = match["match_seq_num"]
-          detailed_match["tower_status_radiant"]    = match["tower_status_radiant"]
-          detailed_match["tower_status_dire"]       = match["tower_status_dire"]
-          detailed_match["barracks_status_radiant"] = match["barracks_status_radiant"]
-          detailed_match["barracks_status_dire"]    = match["barracks_status_dire"]
-          detailed_match["cluster"]                 = match["cluster"]
-          detailed_match["first_blood_time"]        = match["first_blood_time"]
-          detailed_match["lobby_type"]              = match["lobby_type"]
-          detailed_match["human_players"]           = match["human_players"]
-          detailed_match["leagueid"]                = match["leagueid"]
-          detailed_match["positive_votes"]          = match["positive_votes"]
-          detailed_match["negative_votes"]          = match["negative_votes"]
-          detailed_match["game_mode"]               = match["game_mode"]
-
-          detailed_match["players"]                 = match["players"]
-
-          # FIXME: untested, find a tournament return to make sure shape is correct
-          detailed_match["picks_bans"]              = match["picks_bans"]
-
-          puts "Saved Match ##{detailed_match["match_id"]}" if detailed_match.save!
+        if match.new_record?
+          DB.build_match(match, match_data)
         end
       end
       puts 'DONE.'
-
     rescue NoMethodError => e
       puts "Error fetching matches, is the API down?"
     end
