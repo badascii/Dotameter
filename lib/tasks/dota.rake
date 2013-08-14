@@ -22,10 +22,23 @@ namespace :dota do
   # should call method that calls api to populate hero stats
   desc "fetches detailed_matches & populates mongoDB with 100 starting from last fetched seq_num"
   task :get_matches, [:seq_start] => [:environment] do |t, args|
-    DB.build_matches(args)
+    DB.get_matches(args)
+
+    puts "--------------"
+    puts "TASK COMPLETED"
+    puts "--------------"
   end
 
   # task :get_lastest_matches do
   #   Rake::Task[:get_matches].invoke(Match.last.match_seq_num)
   # end
+
+  desc "creates/updates static hero stats"
+  task :get_heroes => [:environment] do
+    DB.build_heroes(DB.get_json_hero_data)
+
+    puts "--------------"
+    puts "TASK COMPLETED"
+    puts "--------------"
+  end
 end

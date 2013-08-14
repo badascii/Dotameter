@@ -18,9 +18,8 @@ module DB
     "/assets/hero_portraits/#{hero}_full.png"
   end
 
-  def self.build_heroes
-    heroes = Hero.get_json_hero_data
-    heroes.each do |hero|
+  def self.build_heroes(hero_array)
+    hero_array.each do |hero|
 
       h = Hero.find_or_initialize_by(name: hero["name"])
 
@@ -49,9 +48,11 @@ module DB
       h.front_cast_time  = hero["front_cast_time"]
       h.back_cast_time   = hero["back_cast_time"]
       h.base_attack_time = hero["base_attack_time"]
-      h.icon             = Hero.get_icon(h.name)
+      h.icon             = DB.get_icon(h.name)
 
       h.save!
+
+      puts "Hero saved: #{h.name}" if h.save!
     end
   end
 
@@ -61,20 +62,23 @@ module DB
         match = Match.find_by(match_seq_num: match_seq_num)
         unless match.nil?
           radiant_win = match.radiant_win
+          set_wins_losses(match, radiant_win)
+        end
+      end
+    end
 
-          match.players.each do |player|
-            valve_id = player["hero_id"]
-            team     = Match.which_team(player["player_slot"])
-            hero     = Hero.find_by(valve_id: valve_id)
+    def self.set_wins_losses(match, radiant_win)
+      match.players.each do |player|
+        valve_id = player["hero_id"]
+        team     = DB.which_team(player["player_slot"])
+        hero     = Hero.find_by(valve_id: valve_id)
 
-            if ((team == "Radiant") && radiant_win) || ((team == "Dire") && !radiant_win)
-              hero.wins += 1
-              hero.save!
-            else
-              hero.losses += 1
-              hero.save!
-            end
-          end
+        if ((team == "Radiant") && radiant_win) || ((team == "Dire") && !radiant_win)
+          hero.wins += 1
+          hero.save!
+        else
+          hero.losses += 1
+          hero.save!
         end
       end
     end
@@ -93,7 +97,35 @@ module DB
     Match.last
   end
 
-  def self.build_matches(seq_start=215_706_100)
+  def self.build_match(match, match_json)
+    match.radiant_win             = match_json["radiant_win"]
+    match.duration                = match_json["duration"]
+    match.start_time              = match_json["start_time"]
+    match.match_id                = match_json["match_id"]
+    match.match_seq_num           = match_json["match_seq_num"]
+    match.tower_status_radiant    = match_json["tower_status_radiant"]
+    match.tower_status_dire       = match_json["tower_status_dire"]
+    match.barracks_status_radiant = match_json["barracks_status_radiant"]
+    match.barracks_status_dire    = match_json["barracks_status_dire"]
+    match.cluster                 = match_json["cluster"]
+    match.first_blood_time        = match_json["first_blood_time"]
+    match.lobby_type              = match_json["lobby_type"]
+    match.human_players           = match_json["human_players"]
+    match.leagueid                = match_json["leagueid"]
+    match.positive_votes          = match_json["positive_votes"]
+    match.negative_votes          = match_json["negative_votes"]
+    match.game_mode               = match_json["game_mode"]
+    match.players                 = match_json["players"]
+
+    # FIXME: untested, find a tournament return to make sure shape is correct
+    match.picks_bans              = match_json["picks_bans"]
+
+    match.save!
+
+    puts "Match saved: Sequence ##{match.match_seq_num}" if match.save!
+  end
+
+  def self.get_matches(seq_start=215_706_100)
 
     # fetch according to initial release match number or last fetched
     last_fetched_seq = Match.last.match_seq_num.to_i unless Match.empty?
@@ -101,41 +133,14 @@ module DB
 
     begin
       returned_matches = DotaAPI.get_match_details_by_seq(last_fetched_seq + 1)["result"]
+      returned_matches["matches"].each do |match_json|
 
-      returned_matches["matches"].each do |match|
+        match = Match.find_or_initialize_by(match_id: match_json["match_id"].to_s)
 
-        detailed_match = Match.find_or_initialize_by(match_id: match["match_id"].to_s)
-
-        if detailed_match.new_record?
-
-          detailed_match["radiant_win"]             = match["radiant_win"]
-          detailed_match["duration"]                = match["duration"]
-          detailed_match["start_time"]              = match["start_time"]
-          detailed_match["match_id"]                = match["match_id"]
-          detailed_match["match_seq_num"]           = match["match_seq_num"]
-          detailed_match["tower_status_radiant"]    = match["tower_status_radiant"]
-          detailed_match["tower_status_dire"]       = match["tower_status_dire"]
-          detailed_match["barracks_status_radiant"] = match["barracks_status_radiant"]
-          detailed_match["barracks_status_dire"]    = match["barracks_status_dire"]
-          detailed_match["cluster"]                 = match["cluster"]
-          detailed_match["first_blood_time"]        = match["first_blood_time"]
-          detailed_match["lobby_type"]              = match["lobby_type"]
-          detailed_match["human_players"]           = match["human_players"]
-          detailed_match["leagueid"]                = match["leagueid"]
-          detailed_match["positive_votes"]          = match["positive_votes"]
-          detailed_match["negative_votes"]          = match["negative_votes"]
-          detailed_match["game_mode"]               = match["game_mode"]
-
-          detailed_match["players"]                 = match["players"]
-
-          # FIXME: untested, find a tournament return to make sure shape is correct
-          detailed_match["picks_bans"]              = match["picks_bans"]
-
-          puts "Saved Match ##{detailed_match["match_id"]}" if detailed_match.save!
+        if match.new_record?
+          DB.build_match(match, match_json)
         end
       end
-      puts 'DONE.'
-
     rescue NoMethodError => e
       puts "Error fetching matches, is the API down?"
     end
