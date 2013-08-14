@@ -6,7 +6,8 @@
           %h1
             {{characterName}}
         .row
-          Attack types, roles
+          %p
+            Attack types, roles
       .row.hero-filter
         filter by role, Attack Type, By Name
       .heroes
@@ -14,6 +15,7 @@
         .row
           .large-4.columns
             %b
+              %img{:src => "assets/style_images/overviewicon_str.png"}
               %h1
                 Strength
             %div{"ng-repeat" => "subArray in radiantStr"}
@@ -23,6 +25,7 @@
                     %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             %b
+              %img{:src => "assets/style_images/overviewicon_agi.png"}
               %h1
                 Agility
             %div{"ng-repeat" => "subArray in radiantAgi"}
@@ -32,6 +35,7 @@
                     %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             %b
+              %img{:src => "assets/style_images/overviewicon_int.png"}
               %h1
                 Intelligence
             %div{"ng-repeat" => "subArray in radiantInt"}
