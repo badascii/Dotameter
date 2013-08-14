@@ -1,16 +1,10 @@
-app.controller('matchCtrl', function($scope, $http) {
+app.controller('matchCtrl', function($scope, $http, $cookies) {
 
-  $scope.matches = $http.get('/matches').success(function(data) {
-    $scope.matches = data;
+  $scope.match = $http.get('/matches/' + $cookies.match_id ).success(function(data) {
+    $scope.match = data;
+    console.log(data);
   });
 
-  $scope.getMatch = function(matchID) {
-    $http.get('/matches/' + matchID).success(function(data) {
-      console.log('success!');
-      $scope.showMatch = data;
-    });
-  };
 
-  // $scope.showMatch = function(){getMatch};
 
 });
