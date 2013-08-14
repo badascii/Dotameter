@@ -69,6 +69,7 @@ app.controller('heroCtrl', function($scope, $http) {
     }
   };
 
+
   // When called, will make a nested array of arrays containing objects.
   // The length of the groupings is determined by the groups variable.
   // Data is the thing to attach.
