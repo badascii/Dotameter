@@ -20,6 +20,7 @@
       .heroes {
 
         .custom-column-4 {
+            display: block;
             float: left;
             width: 24%;
             margin-left: 0.5%;
@@ -28,10 +29,19 @@
           .hero-icons {
             width: 100%;
             margin-top: 2%;
+            -webkit-transition: width 1s;
 
             img {
+              width: 100%;
               border: 2px solid black;
               border-radius: 3px;
+            }
+
+            &:hover {
+              width: 300%;
+              position: relative;
+              z-index: 100;
+              -webkit-transition: width 1s;
             }
           }
         }
