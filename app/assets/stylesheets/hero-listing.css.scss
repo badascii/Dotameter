@@ -19,20 +19,30 @@
 
       .heroes {
 
-        .hero-icons {
-          width: 96%;
-          height: 70px;
-          margin-top: 2px;
-          margin-left: 2%;
-          margin-right: 2%;
+        .custom-column-4 {
+            display: block;
+            float: left;
+            width: 24%;
+            margin-left: 0.5%;
+            margin-right: 0.5%;
 
-          background-color: lime;
+          .hero-icons {
+            width: 100%;
+            margin-top: 2%;
+            -webkit-transition: width 1s;
 
-          img {
-            border: 2px solid black;
-            border-radius: 3px;
-            height: 70px;
+            img {
+              width: 100%;
+              border: 2px solid black;
+              border-radius: 3px;
+            }
 
+            &:hover {
+              width: 300%;
+              position: relative;
+              z-index: 100;
+              -webkit-transition: width 1s;
+            }
           }
         }
       }

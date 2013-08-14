@@ -1,10 +1,3 @@
-
-
-/%div{"ng-include", :src => "'_hero_partial.html.haml'"}
-/ <div ng-include src="_hero_partial.html.haml"></div>
-
-%hr
-
 .hero-listing.page{"ng-controller" => "heroCtrl"}
   .content
     .content-inner-border
@@ -17,64 +10,73 @@
       .row.hero-filter
         filter by role, Attack Type, By Name
       .heroes
+        // RADIANT
         .row
           .large-4.columns
-            .row
-              %b
-                %h1
-                  Strength
-              %h2
-                Radiant
-              %div{"ng-repeat" => "hero in radiantStr"}
-                .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
+            %b
+              %h1
+                Strength
+            %h2
+              Radiant
+            %div{"ng-repeat" => "subArray in radiantStr"}
+              .row
+                .custom-column-4{"ng-repeat" => "hero in subArray"}
+                  .hero-icons
+                    %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
-            .row
-              %b
-                %h1
-                  Agility
-              %h2
-                Radiant
-              %div{"ng-repeat" => "hero in radiantAgi"}
-                .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
+            %b
+              %h1
+                Agility
+            %h2
+              Radiant
+            %div{"ng-repeat" => "subArray in radiantAgi"}
+              .row
+                .custom-column-4{"ng-repeat" => "hero in subArray"}
+                  .hero-icons
+                    %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
-            .row
-              %b
-                %h1
-                  Intelligence
-              %h2
-                Radiant
-              %div{"ng-repeat" => "hero in radiantInt"}
-                .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
+            %b
+              %h1
+                Intelligence
+            %h2
+              Radiant
+            %div{"ng-repeat" => "subArray in radiantInt"}
+              .row
+                .custom-column-4{"ng-repeat" => "hero in subArray"}
+                  .hero-icons
+                    %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
+        // DIRE
         .row
           .large-4.columns
-            .row
-              %b
-                %h1
-                  Strength
-              %h2
-                Dire
-              %div{"ng-repeat" => "hero in direStr"}
-                .hero-icons
-                  %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
+            %b
+              %h1
+                Strength
+            %h2
+              Dire
+            %div{"ng-repeat" => "subArray in direStr"}
+              .row
+                .custom-column-4{"ng-repeat" => "hero in subArray"}
+                  .hero-icons
+                    %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             %b
               %h1
                 Agility
             %h2
               Dire
-            %div{"ng-repeat" => "hero in direAgi"}
-              .hero-icons
-                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
+            %div{"ng-repeat" => "subArray in direAgi"}
+              .row
+                .custom-column-4{"ng-repeat" => "hero in subArray"}
+                  .hero-icons
+                    %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)", "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
           .large-4.columns
             %b
               %h1
                 Intelligence
             %h2
               Dire
-            %div{"ng-repeat" => "hero in direInt"}
-              .hero-icons
-                %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)",  "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
-
+            %div{"ng-repeat" => "subArray in direInt"}
+              .row
+                .custom-column-4{"ng-repeat" => "hero in subArray"}
+                  .hero-icons
+                    %img{:alt => "{{hero.name}}", :src => "{{hero.icon}}", "ng-mouseover" => "toggleCharDetails($event)",  "ng-mouseout" => "toggleCharDetails($event)", "data-heroName" => "{{hero.name}}", "data-heroUrl" => "{{hero.url}}", "ng-click" => "showHero($event)"}
