@@ -1,142 +1,141 @@
 .match{"ng-controller" => "matchCtrl"}
+  %h2{"ng-model" => "match"}
 
-  %h2{"ng-model" => "showMatch(#{@match.match_id})"}
-    Match_ID #
-    = @match.match_id
+  Match_ID #
+  {{ match.match_id }}
   %ul
     %li
       radiant_win:
-      = @match.radiant_win
+      {{ match.radiant_win }}
     %li
       duration:
-      = @match.duration
+      {{ match.duration }}
     %li
       start_time:
-      = @match.start_time
+      {{ match.start_time }}
     %li
       match_id:
-      = @match.match_id
+      {{ match.match_id }}
     %li
       match_seq_num:
-      = @match.match_seq_num
+      {{ match.match_seq_num }}
     %li
       tower_status_radiant:
-      = @match.tower_status_radiant
+      {{ match.tower_status_radiant }}
     %li
       tower_status_dire:
-      = @match.tower_status_dire
+      {{ match.tower_status_dire }}
     %li
       barracks_status_radiant:
-      = @match.barracks_status_radiant
+      {{ match.barracks_status_radiant }}
     %li
       barracks_status_dire:
-      = @match.barracks_status_dire
+      {{ match.barracks_status_dire }}
     %li
       cluster:
-      = @match.cluster
+      {{ match.cluster }}
     %li
       first_blood_time:
-      = @match.first_blood_time
+      {{ match.first_blood_time }}
     %li
       lobby_type:
-      = @match.lobby_type
+      {{ match.lobby_type }}
     %li
       human_players:
-      = @match.human_players
+      {{ match.human_players }}
     %li
       leagueid:
-      = @match.leagueid
+      {{ match.leagueid }}
     %li
       positive_votes:
-      = @match.positive_votes
+      {{ match.positive_votes }}
     %li
       negative_votes:
-      = @match.negative_votes
+      {{ match.negative_votes }}
     %li
       game_mode:
-      = @match.game_mode
+      {{ match.game_mode }}
 
   %hr
 
-  %h2
-    players:
+  / %h2
+  /   players:
 
-  %ul
-    - @match.players.each do |player|
-      %li
-        account_id:
-        = player["account_id"]
-      %li
-        player_slot:
-        = player["player_slot"]
-      %li
-        hero_id:
-        = player["hero_id"]
+  %ul{"ng-repeat" => "player in match.players"}
+    %li
+      account_id:
+      {{ player.account_id }}
+    %li
+      player_slot:
+      {{ player.player_slot }}
+    %li
+      hero_name:
+      %a{"href" => "{{ player.hero_url }}"}
+        {{ player.hero_name }}
       %li
         item_0:
-        = player["item_0"]
+        {{ player.item_0 }}
       %li
         item_1:
-        = player["item_1"]
+        {{ player.item_1 }}
       %li
         item_2:
-        = player["item_2"]
+        {{ player.item_2 }}
       %li
         item_3:
-        = player["item_3"]
+        {{ player.item_3 }}
       %li
         item_4:
-        = player["item_4"]
+        {{ player.item_4 }}
       %li
         item_5:
-        = player["item_5"]
+        {{ player.item_5 }}
       %li
         kills:
-        = player["kills"]
+        {{ player.kills }}
       %li
         deaths:
-        = player["deaths"]
+        {{ player.deaths }}
       %li
         assists:
-        = player["assists"]
+        {{ player.assists }}
       %li
         leaver_status:
-        = player["leaver_status"]
+        {{ player.leaver_status }}
       %li
         gold:
-        = player["gold"]
+        {{ player.gold }}
       %li
         last_hits:
-        = player["last_hits"]
+        {{ player.last_hits }}
       %li
         denies:
-        = player["denies"]
+        {{ player.denies }}
       %li
         gold_per_min:
-        = player["gold_per_min"]
+        {{ player.gold_per_min }}
       %li
         xp_per_min:
-        = player["xp_per_min"]
+        {{ player.xp_per_min }}
       %li
         gold_spent:
-        = player["gold_spent"]
+        {{ player.gold_spent }}
       %li
         hero_damage:
-        = player["hero_damage"]
+        {{ player.hero_damage }}
       %li
         tower_damage:
-        = player["tower_damage"]
+        {{ player.tower_damage }}
       %li
         hero_healing:
-        = player["hero_healing"]
+        {{ player.hero_healing }}
       %li
         level:
-        = player["level"]
+        {{ player.level }}
       %li
         ability_upgrades:
-        = player["ability_upgrades"]
+        {{ player.ability_upgrades }}
 
-    - unless @match["pick_bans"].nil?
-      %li
+      %li{"ng-show" => "match.picks_bans"}
         picks_bans:
-        = @match.picks_bans
+        {{ match.picks_bans }}

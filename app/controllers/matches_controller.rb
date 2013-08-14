@@ -7,6 +7,7 @@ class MatchesController < ApplicationController
 
   def show
     set_match
+    cookies[:match_id] = params[:match_id]
   end
 
   # def recent_matches
