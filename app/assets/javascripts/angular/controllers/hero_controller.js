@@ -32,6 +32,7 @@ app.controller('heroCtrl', function($scope, $http) {
         // push these objects onto the Radiant strength, Agility, Intelligence array.
         switch(thisObj.primary_stat) {
           case 'agi':
+            // Push onto the Radiant Agility array.
             inGroupsOf(thisObj, $scope.radiantAgi, 4);
             break;
 
@@ -75,15 +76,22 @@ app.controller('heroCtrl', function($scope, $http) {
   // Groups determines the length of the second level arrays.
   var inGroupsOf = function(data, receiver, groups) {
     // FIXME: error handling for incorrectly called function, ie. Not enough arguments.
+    // If the receiver was recently initialized and is empty
     if (receiver.length === 0) {
+      // Push on an empty array
       receiver.push([]);
+      // Push the data onto the end of that array (the last array)
       receiver[receiver.length - 1].push(data);
     } else {
+      // If the receiver's last array is already full of data
       if (receiver[receiver.length - 1].length % groups === 0) {
+        // Push a new array onto the end of the receiver
         receiver.push([]);
+        // Append the data into the last array of the receiver
         receiver[receiver.length - 1].push(data);
       }
       else {
+        // Append the data into the last array of the receiver
         receiver[receiver.length - 1].push(data);
       }
     }
