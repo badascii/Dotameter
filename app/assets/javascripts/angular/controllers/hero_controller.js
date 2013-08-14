@@ -104,11 +104,12 @@ app.controller('heroCtrl', function($scope, $http) {
 
   // Is attached to all characters on the index page. Will toggle on mouseOver/mouseOut
   $scope.toggleCharDetails = function($event) {
+    // Set heroBox to the jquery selector of what was clicked
     var heroBox = $($event.target);
-
     if ($scope.characterName == heroBox.attr('data-heroName')) {
       $scope.characterName = 'Choose a character';
     } else {
+      // Replace the character Name with this characters name.
       $scope.characterName = heroBox.attr('data-heroName');
     }
   };
