@@ -2,8 +2,9 @@ body {
   width: 100%;
   background-image: image-url('style_images/always_grey.png');
 
-  .site-header {
-    background-color: #2E2E2E;
+
+  header {
+    background-color: #ff1f39;
     margin-top: 2%;
     margin-bottom: 2%;
     padding-top: 2%;
@@ -15,5 +16,12 @@ body {
     -webkit-box-shadow: 3px 3px 4px #000;
     box-shadow: 3px 3px 4px #000;
     font-family: 'Port Lligat Slab', serif;
+  }
+
+  .navbar {
+    background-color: lime;
+    width: 100%;
+    color: white;
+    line-height: 150%;
   }
 }

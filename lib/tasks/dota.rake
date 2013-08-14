@@ -1,5 +1,5 @@
 namespace :dota do
-
+  require 'DB'
 #---------------------------------------------------------------------
 
   desc "clears DB of heroes only"
@@ -21,55 +21,16 @@ namespace :dota do
 
   # should call method that calls api to populate hero stats
   desc "fetches detailed_matches & populates mongoDB with 100 starting from last fetched seq_num"
-  task :get_matches => :environment do
-
-    FIRST_MATCH = 215_706_100
-
-    # fetch according to initial release match number or last fetched
-    last_fetched_seq = Match.last.match_seq_num.to_i unless Match.empty?
-    last_fetched_seq ||= FIRST_MATCH
-
-    begin
-      returned_matches = DotaAPI.get_match_details_by_seq(last_fetched_seq + 1)["result"]
-
-      returned_matches["matches"].each do |match|
-
-        detailed_match = Match.find_or_initialize_by(match_id: match["match_id"].to_s)
-
-        if detailed_match.new_record?
-
-          detailed_match["radiant_win"]             = match["radiant_win"]
-          detailed_match["duration"]                = match["duration"]
-          detailed_match["start_time"]              = match["start_time"]
-          detailed_match["match_id"]                = match["match_id"]
-          detailed_match["match_seq_num"]           = match["match_seq_num"]
-          detailed_match["tower_status_radiant"]    = match["tower_status_radiant"]
-          detailed_match["tower_status_dire"]       = match["tower_status_dire"]
-          detailed_match["barracks_status_radiant"] = match["barracks_status_radiant"]
-          detailed_match["barracks_status_dire"]    = match["barracks_status_dire"]
-          detailed_match["cluster"]                 = match["cluster"]
-          detailed_match["first_blood_time"]        = match["first_blood_time"]
-          detailed_match["lobby_type"]              = match["lobby_type"]
-          detailed_match["human_players"]           = match["human_players"]
-          detailed_match["leagueid"]                = match["leagueid"]
-          detailed_match["positive_votes"]          = match["positive_votes"]
-          detailed_match["negative_votes"]          = match["negative_votes"]
-          detailed_match["game_mode"]               = match["game_mode"]
-
-          detailed_match["players"]                 = match["players"]
-
-          # FIXME: untested, find a tournament return to make sure shape is correct
-          detailed_match["picks_bans"]              = match["picks_bans"]
-
-          puts "Saved Match ##{detailed_match["match_id"]}" if detailed_match.save!
-        end
-      end
-      puts 'DONE.'
-
-    rescue NoMethodError => e
-      puts "Error fetching matches, is the API down?"
-    end
+  task :get_matches, [:seq_start] => [:environment] do |t, args|
+    DB.get_matches(args)
   end
 
-end
+  # task :get_lastest_matches do
+  #   Rake::Task[:get_matches].invoke(Match.last.match_seq_num)
+  # end
 
+  desc "creates/updates static hero stats"
+  task :get_heroes => [:environment] do
+    DB.build_heroes(DB.get_json_hero_data)
+  end
+end
