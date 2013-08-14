@@ -1,7 +1,7 @@
 body {
   width: 100%;
 
-  .site-header {
+  header {
     background-color: #ff1f39;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -9,5 +9,12 @@ body {
     padding-bottom: 2%;
     text-align: center;
     border: 1px solid lime;
+  }
+
+  .navbar {
+    background-color: lime;
+    width: 100%;
+    color: white;
+    line-height: 150%;
   }
 }
