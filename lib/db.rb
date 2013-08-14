@@ -61,20 +61,23 @@ module DB
         match = Match.find_by(match_seq_num: match_seq_num)
         unless match.nil?
           radiant_win = match.radiant_win
+          set_wins_losses(match, radiant_win)
+        end
+      end
+    end
 
-          match.players.each do |player|
-            valve_id = player["hero_id"]
-            team     = Match.which_team(player["player_slot"])
-            hero     = Hero.find_by(valve_id: valve_id)
+    def self.set_wins_losses(match, radiant_win)
+      match.players.each do |player|
+        valve_id = player["hero_id"]
+        team     = DB.which_team(player["player_slot"])
+        hero     = Hero.find_by(valve_id: valve_id)
 
-            if ((team == "Radiant") && radiant_win) || ((team == "Dire") && !radiant_win)
-              hero.wins += 1
-              hero.save!
-            else
-              hero.losses += 1
-              hero.save!
-            end
-          end
+        if ((team == "Radiant") && radiant_win) || ((team == "Dire") && !radiant_win)
+          hero.wins += 1
+          hero.save!
+        else
+          hero.losses += 1
+          hero.save!
         end
       end
     end
