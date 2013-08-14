@@ -21,3 +21,5 @@ json.extract! @match,
   :players,
 
   :picks_bans
+
+json.url match_url(@match.match_id, format: :html)

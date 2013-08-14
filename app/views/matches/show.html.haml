@@ -71,71 +71,70 @@
     %li
       hero_id:
       {{ player.hero_id }}
-  /     %li
-  /       item_0:
-  /       = player["item_0"]
-  /     %li
-  /       item_1:
-  /       = player["item_1"]
-  /     %li
-  /       item_2:
-  /       = player["item_2"]
-  /     %li
-  /       item_3:
-  /       = player["item_3"]
-  /     %li
-  /       item_4:
-  /       = player["item_4"]
-  /     %li
-  /       item_5:
-  /       = player["item_5"]
-  /     %li
-  /       kills:
-  /       = player["kills"]
-  /     %li
-  /       deaths:
-  /       = player["deaths"]
-  /     %li
-  /       assists:
-  /       = player["assists"]
-  /     %li
-  /       leaver_status:
-  /       = player["leaver_status"]
-  /     %li
-  /       gold:
-  /       = player["gold"]
-  /     %li
-  /       last_hits:
-  /       = player["last_hits"]
-  /     %li
-  /       denies:
-  /       = player["denies"]
-  /     %li
-  /       gold_per_min:
-  /       = player["gold_per_min"]
-  /     %li
-  /       xp_per_min:
-  /       = player["xp_per_min"]
-  /     %li
-  /       gold_spent:
-  /       = player["gold_spent"]
-  /     %li
-  /       hero_damage:
-  /       = player["hero_damage"]
-  /     %li
-  /       tower_damage:
-  /       = player["tower_damage"]
-  /     %li
-  /       hero_healing:
-  /       = player["hero_healing"]
-  /     %li
-  /       level:
-  /       = player["level"]
-  /     %li
-  /       ability_upgrades:
-  /       = player["ability_upgrades"]
+      %li
+        item_0:
+        {{ player.item_0 }}
+      %li
+        item_1:
+        {{ player.item_1 }}
+      %li
+        item_2:
+        {{ player.item_2 }}
+      %li
+        item_3:
+        {{ player.item_3 }}
+      %li
+        item_4:
+        {{ player.item_4 }}
+      %li
+        item_5:
+        {{ player.item_5 }}
+      %li
+        kills:
+        {{ player.kills }}
+      %li
+        deaths:
+        {{ player.deaths }}
+      %li
+        assists:
+        {{ player.assists }}
+      %li
+        leaver_status:
+        {{ player.leaver_status }}
+      %li
+        gold:
+        {{ player.gold }}
+      %li
+        last_hits:
+        {{ player.last_hits }}
+      %li
+        denies:
+        {{ player.denies }}
+      %li
+        gold_per_min:
+        {{ player.gold_per_min }}
+      %li
+        xp_per_min:
+        {{ player.xp_per_min }}
+      %li
+        gold_spent:
+        {{ player.gold_spent }}
+      %li
+        hero_damage:
+        {{ player.hero_damage }}
+      %li
+        tower_damage:
+        {{ player.tower_damage }}
+      %li
+        hero_healing:
+        {{ player.hero_healing }}
+      %li
+        level:
+        {{ player.level }}
+      %li
+        ability_upgrades:
+        {{ player.ability_upgrades }}
 
-  /   - unless @match["pick_bans"].nil?
-  /     %li
-  /       picks_bans:
-  /       = @match.picks_bans
+      %li{"ng-show" => "match.picks_bans"}
+        picks_bans:
+        {{ match.picks_bans }}
