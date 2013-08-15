@@ -1,5 +1,4 @@
 namespace :dota do
-  require 'DB'
 #---------------------------------------------------------------------
 
   desc "clears DB of heroes only"
