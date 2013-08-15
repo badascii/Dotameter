@@ -45,6 +45,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bson (1.9.1)
+    bson_ext (1.9.1)
+      bson (~> 1.9.1)
     builder (3.1.4)
     callsite (0.0.11)
     capybara (2.1.0)
@@ -188,6 +191,8 @@ GEM
     mime-types (1.23)
     mini_portile (0.5.1)
     minitest (4.7.5)
+    mongo (1.9.1)
+      bson (~> 1.9.1)
     moped (1.5.0)
     multi_json (1.7.8)
     multi_xml (0.5.4)
@@ -199,7 +204,6 @@ GEM
       mini_portile (~> 0.5.0)
     ntlm-http (0.1.1)
     origin (1.1.0)
-    pg (0.16.0)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     pry (0.9.12.2)
@@ -330,6 +334,7 @@ DEPENDENCIES
   angularjs-rails
   better_errors
   binding_of_caller
+  bson_ext
   capybara
   faker
   figaro
@@ -347,10 +352,10 @@ DEPENDENCIES
   kaminari
   mechanize
   meta_request
+  mongo
   mongoid!
   newrelic_rpm
   nokogiri
-  pg
   rails (= 4.0.0)
   rails_12factor
   rb-fsevent
