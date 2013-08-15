@@ -12,14 +12,16 @@
       http://code.angularjs.org/1.0.7/angular.min.js
 
   %body
-    %header
-      .large-2.columns
-        .navbar
-          = link_to "Home", root_path
-          = link_to "Heroes", heroes_path
-          = link_to "Matches", matches_path
-          = link_to "About", root_path
-      .large-10.columns
-        .site-header.row
-          DOTAMETER!!!!!!!!...This is also the header
+    %nav.top-bar
+      %ul
+        %li.name
+          %h1
+            %a{:href => root_path} Dotameter
+        %li
+          %a{:href => heroes_path} Heroes
+        %li
+          %a{:href => matches_path} Matches
+        %li
+          %a{:href => root_path} About
+
     = yield
