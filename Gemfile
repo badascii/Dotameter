@@ -5,10 +5,13 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use postgresql as the database for Active Record
-gem 'pg'
+gem 'mongo'
 
+# Rails ORM for MongoDB
 gem 'mongoid', :git => 'git://github.com/mongoid/mongoid'
+
+# MongoDB performance enhancer
+gem 'bson_ext'
 
 # Wraps the Angular.js library for use in Rails 3.1 and above. Assets will minify automatically during production.
 gem 'angularjs-rails'
