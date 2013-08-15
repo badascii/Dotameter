@@ -9,27 +9,70 @@
           Primary Stat:
           = @hero.primary_stat
       .row
-
-
-
-
-
+        .large-5.columns
+          .hero-picture
+            %img{:alt => @hero.name, :src => @hero.icon}
+        .large-7.columns
+          .base-stats
+            .row
+              .base-stat-header
+                %h1
+                  Base Stats
+            .row
+              .large-5.columns
+                %div= "STR: " + @hero.str.to_s + " (+" + @hero.str_per_lvl.to_s + ")"
+                %div= "AGI: " + @hero.agi.to_s + " (+" + @hero.agi_per_lvl.to_s + ")"
+                %div= "INT: " + @hero.int.to_s + " (+" + @hero.int_per_lvl.to_s + ")"
+                %div= "HP: " + @hero.hp.to_s
+                %div= "MP: " + @hero.mp.to_s
+                %div= "Damage: " + @hero.min_dmg.to_s + "-" + @hero.max_dmg.to_s
+                %div= "Armor: " + @hero.armor.to_s
+                %div= "Move Speed: " + @hero.move_speed
+                %div= "Turn Rate: " + @hero.turn_rate
+              .large-7.columns
+                %div= "Day/Night Vision: " + @hero.day_sight + "/" + @hero.night_sight.to_s
+                %div= "Attack: " + @hero.attack_range
+                %div= "Missile Speed: " + @hero.missile_speed
+                %div= "Attack Duration: " + @hero.front_swing + " + " + @hero.back_swing
+                %div= "Cast Duration: " + @hero.front_cast_time + " + " + @hero.back_cast_time
+                %div= "Base Attack Time: " + @hero.base_attack_time
       .row
-        %h2{"ng-model" => "hero.name"}
-          %h4 Base stats:
-          %ul
-            %li= "STR: " + @hero.str.to_s + " + " + @hero.str_per_lvl.to_s
-            %li= "AGI: " + @hero.agi.to_s + " + " + @hero.agi_per_lvl.to_s
-            %li= "INT: " + @hero.int.to_s + " + " + @hero.int_per_lvl.to_s
-            %li= "HP: " + @hero.hp.to_s
-            %li= "MP: " + @hero.mp.to_s
-            %li= "Damage: " + @hero.min_dmg.to_s + "-" + @hero.max_dmg.to_s
-            %li= "Armor: " + @hero.armor.to_s
-            %li= "Move Speed: " + @hero.move_speed
-            %li= "Turn Rate: " + @hero.turn_rate
-            %li= "Day/Night Vision: " + @hero.day_sight + "/" + @hero.night_sight.to_s
-            %li= "Attack: " + @hero.attack_range
-            %li= "Missile Speed: " + @hero.missile_speed
-            %li= "Attack Duration: " + @hero.front_swing + " + " + @hero.back_swing
-            %li= "Cast Duration: " + @hero.front_cast_time + " + " + @hero.back_cast_time
-            %li= "Base Attack Time: " + @hero.base_attack_time
+        .large-5.columns
+          .popular-builds
+            Most Popular Builds
+        .large-7.columns
+          .row
+            .large-6.columns
+              .win-percent
+                Win %
+            .large-6.columns
+              .appearance-percent
+                Appearance %
+      .row
+        .large-5.columns
+          .usage-graph
+            Usage Graph
+        .large-7.columns
+          .win-percent-graph
+            Win % Graph
+      .row
+        .large-5.columns
+          .recent-matches
+            Recent matches
+        .large-7.columns
+          .row
+            .large-12.columns
+              .best-versus
+                Best Versus
+          .row
+            .large-12.columns
+              .worst-versus
+                Worst Versus
+          .row
+            .large-12.columns
+              .most-used-items
+                Most Used Items
+          .row
+            .large-12.columns
+              .time-played
+                Time Played
