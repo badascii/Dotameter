@@ -1,21 +1,28 @@
-app.controller('matchCtrl', function($scope, $http) {
+app.controller('matchCtrl', function($scope, $http, $cookies) {
 
-  //Rails send the page. With the match id as a param.
-  //Angular makes a JSON request for the match details.
+  $scope.heroes = $http.get('/heroes').success(function(data) {
+    $scope.heroes = data;
+  });
 
+  $scope.match = $http.get('/matches/' + $cookies.match_id ).success(function(data) {
+    $scope.match = enrichMatchDataWithHeroes(data);
+  });
 
+  // adds hero_url and hero_name to player object
+  var enrichMatchDataWithHeroes = function(data) {
+    for (var i = 0, max = data.players.length; i < max; i++) {
+      var thisPlayer = data.players[i];
 
-  // $scope.matches = $http.get('/matches').success(function(data) {
-  //   $scope.matches = data;
-  // });
+      for (var j = 0, total = $scope.heroes.length; j < total; j++) {
+        var thisHero = $scope.heroes[j];
 
-  // $scope.getMatch = function(matchID) {
-  //   $http.get('/matches/' + matchID).success(function(data) {
-  //     console.log('success!');
-  //     $scope.showMatch = data;
-  //   });
-  // };
-
-  // // $scope.showMatch = function(){getMatch};
+        if (thisPlayer.hero_id == thisHero.valve_id) {
+          thisPlayer['hero_name'] = thisHero.name;
+          thisPlayer['hero_url'] = thisHero.url;
+        }
+      }
+    }
+    return data;
+  };
 
 });

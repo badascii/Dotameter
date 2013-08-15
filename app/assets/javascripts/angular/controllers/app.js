@@ -1,4 +1,4 @@
-var app = angular.module('Dotameter', []);
+var app = angular.module('Dotameter', ['ngCookies']);
 
 // app.config([
 //   "$httpProvider", function($httpProvider) {

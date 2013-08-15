@@ -1,6 +1,6 @@
 
-= link_to_next_page @matches, 'Next Page'
-= paginate @matches.page(params[:page])
+= link_to_previous_page @matches, 'Prev'
+= link_to_next_page @matches, 'Next'
 
 %ul.matches{"ng-controller" => "matchCtrl"}
   - @matches.each do |rails_match|

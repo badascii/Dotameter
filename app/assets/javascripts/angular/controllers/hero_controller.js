@@ -16,6 +16,8 @@ app.controller('heroCtrl', function($scope, $http) {
   $scope.heroes = $http.get('/heroes').success(function(data) {
     // Set the heroes var.
     $scope.heroes = data;
+    // Adds heroes into session storage for accessibility in matches#show
+    // sessionStorage.heroes = data;
     setHeroArrays(data);
   }).error(function(data) {
     console.log('Rails is not returning /heroes.');
