@@ -5,7 +5,15 @@ class HeroesController < ApplicationController
   end
 
   def show
-    set_hero
+    hero = set_hero
+    case hero.primary_stat
+      when 'str'
+        hero.primary_stat = 'Strength'
+      when 'int'
+        hero.primary_stat = 'Intelligence'
+      when 'agi'
+        hero.primary_stat = 'Agility'
+    end
   end
 
   private
