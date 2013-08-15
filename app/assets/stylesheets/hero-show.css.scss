@@ -1,0 +1,31 @@
+.hero-show {
+
+  .content {
+    padding: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+
+    .content-inner-border {
+      border: 1px solid black;
+      -moz-box-shadow: 3px 3px 4px #000;
+      -webkit-box-shadow: 3px 3px 4px #000;
+      box-shadow: 3px 3px 4px #000;
+      background-color: #424242;
+      font-family: 'Port Lligat Slab', serif;
+
+      .hero-header {
+        margin-top: 1%;
+        border: 1px solid black;
+        background-color: #2E2E2E;
+        color: #00B800;
+
+        .hero {
+          .row {
+            color: #D8D8D8;
+          }
+        }
+      }
+    }
+  }
+}
