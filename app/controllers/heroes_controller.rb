@@ -16,6 +16,10 @@ class HeroesController < ApplicationController
     end
   end
 
+  def hero_win_graph
+    return Match.hero_win_graph(params[:hero_id])
+  end
+
   private
 
   def set_hero
