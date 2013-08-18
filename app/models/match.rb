@@ -26,74 +26,55 @@ class Match
   validates :match_id, presence: true, uniqueness: true
 
 
-
-
   #{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
   #
   #
-  # I Stole this from active record...
-  # http://apidock.com/rails/Array/in_groups_of
-  #
-  #
-  #{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
-  # File activesupport/lib/active_support/core_ext/array/grouping.rb, line 19
-  def in_groups_of(number, fill_with = nil)
-    if fill_with == false
-      collection = self
-    else
-      # size % number gives how many extra we have;
-      # subtracting from number gives how many to add;
-      # modulo number ensures we don't add group of just fill.
-      padding = (number - size % number) % number
-      collection = dup.concat([fill_with] * padding)
-    end
-
-    if block_given?
-      collection.each_slice(number) { |slice| yield(slice) }
-    else
-      groups = []
-      collection.each_slice(number) { |group| groups << group }
-      groups
-    end
-  end
-
-
   # Returns a nice array of node objects from the Mongo DB for Heros.
   # Looks like = [{'y' => height_of_node, 'runningSum' => num_games_won, 'runningTotal' => num_games_tot}]
-  def self.hero_win_graph(hero_id, groups_of)
-    # if groups_of == false
-    #   match_groups = 0
-    # end
-    matches = Match.all
-    runningSum = 0
-    runningTotal = 0
-    winPercent = 0.00
+  # We are using this to build the fancy win % graph on the heroes show page
+  #
+  #
+  #{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+  def self.hero_win_graph(hero_id, groups_of = 1)
+    # Get all matches ever from database
+    # FIXME: This should have a better SQL method to try and return only the records we need.
+    data = Match.all
+
+    matches = data.in_groups_of(groups_of)
+
+    # Initialize local variables
+    running_sum = 0
+    running_total = 0
+    win_percent = 0.00
     histogram = []
-    matches.in_groups_of(groups_of).each do |batch|
+
+    matches.each do |batch|
       batch.each do |match|
         # somewhere here this will need to be built in batches
         # get the winning team/
-        winningTeam = if match.radiant_win == true then 'Radiant' else 'Dire' end
+        winning_team = if match.radiant_win == true then 'Radiant' else 'Dire' end
         # Loop through all the players in that match looking for heroes that match the hero passed.
         match.players.each do |player|
           # if the hero in the match is the hero we are looking for
           if (player['hero_id'] == hero_id)
             # check if this player was on the winning team
-            playerTeam = DB.which_team(player['player_slot'])
-            if (playerTeam == winningTeam)
+            player_team = DB.which_team(player['player_slot'])
+            if (player_team == winning_team)
               # add one to the running sum
-              runningSum += 1
+              running_sum += 1
             end
             # add one to the running total
-            runningTotal += 1
+            running_total += 1
           end
         end
         # calculate the win %
-        winPercent = runningSum.to_f / runningTotal.to_f
+        win_percent = running_sum.to_f / running_total.to_f
         # push it onto the histogram array
-        histogram.push({'y' => winPercent, 'totMatches' => runningTotal, 'totWins' => runningSum})
+        histogram.push({'y' => win_percent, 'totMatches' => running_total, 'totWins' => running_sum, 'winningTeam' => winning_team})
       end
     end
+
+    # Explicitly return the work
     return histogram
   end
 
