@@ -38,7 +38,7 @@ class Match
     # FIXME: This should have a better SQL method to try and return only the records we need.
     data = Match.all
 
-    matches = data.in_groups_of(groups_of)
+    matches = data.in_groups_of(groups_of.to_f)
 
     # Initialize local variables
     running_sum = 0
