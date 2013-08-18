@@ -28,11 +28,9 @@ class Match
 
   #{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
   #
-  #
   # Returns a nice array of node objects from the Mongo DB for Heros.
   # Looks like = [{'y' => height_of_node, 'runningSum' => num_games_won, 'runningTotal' => num_games_tot}]
   # We are using this to build the fancy win % graph on the heroes show page
-  #
   #
   #{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
   def self.hero_win_graph(hero_id, groups_of = 1)
