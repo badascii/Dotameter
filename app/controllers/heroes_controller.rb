@@ -16,8 +16,8 @@ class HeroesController < ApplicationController
     end
   end
 
-  def hero_win_graph
-    return Match.hero_win_graph(params[:hero_id])
+  def win_graph
+    render json: Match.hero_win_graph(params[:hero_id], params[:batch])
   end
 
   private
