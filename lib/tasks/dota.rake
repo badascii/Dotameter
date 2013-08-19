@@ -6,22 +6,11 @@ namespace :dota do
     Hero.destroy_all
   end
 
-  # desc "fetches heroes from wiki and populates DB with heroes"
-  # task :get_heroes => :environment do
-  #   heroes = DotaAPI.get_heroes["result"]["heroes"]
-  #   heroes.each do |hero|
-  #     new_hero = Hero.find_or_create_by!(name: hero["name"].gsub('npc_dota_hero_', ''))
-  #     new_hero.valve_id = hero["id"].to_i
-  #     display "#{new_hero.name} Saved!", :green if new_hero.save!
-  #   end
-  #   puts "Database seeded with " + Hero.all.length.to_s + " heroes."
-  # end
-
-
   # should call method that calls api to populate hero stats
   desc "fetches detailed_matches & populates mongoDB with 100 starting from last fetched seq_num"
   task :get_matches, [:seq_start] => [:environment] do |t, args|
-    DB.get_matches(args)
+    match_fetch = MatchFetch.new
+    match_fetch.get_matches(args)
 
     puts "--------------"
     puts "TASK COMPLETED"
@@ -34,7 +23,8 @@ namespace :dota do
 
   desc "creates/updates static hero stats"
   task :get_heroes => [:environment] do
-    DB.build_heroes(DB.get_json_hero_data)
+    hero_fetch = HeroFetch.new
+    hero_fetch.build_heroes
 
     puts "--------------"
     puts "TASK COMPLETED"
