@@ -36,7 +36,8 @@ class Match
   def self.hero_win_graph(hero_id, groups_of = 1)
     # Get all matches ever from database
     # FIXME: This should have a better SQL method to try and return only the records we need.
-    data = Match.all
+    # data = Match.all
+    data = Match.find({players:{$elemMatch:{id:hero_id}}})
 
     matches = data.in_groups_of(groups_of.to_f)
 
@@ -48,7 +49,6 @@ class Match
 
     matches.each do |batch|
       batch.each do |match|
-        # somewhere here this will need to be built in batches
         # get the winning team/
         winning_team = if match.radiant_win == true then 'Radiant' else 'Dire' end
         # Loop through all the players in that match looking for heroes that match the hero passed.
@@ -72,8 +72,8 @@ class Match
       end
     end
 
-    # Explicitly return the work
-    return histogram
+  #   # Explicitly return the work
+  #   return histogram
   end
 
 end

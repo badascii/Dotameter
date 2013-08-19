@@ -16,6 +16,8 @@ app.controller('heroShowCtrl', function($scope, $http) {
 ///// ALSO, IT NEEDS TO GET the BATCH SIZE FROM A DROP DOWN
 ///// FIXME: NEEDS TO BE BUILT OUT!!
 $(document).ready( function() {
-  angular.element($('.hero-show')).scope().getHeroGraph(1590, 30);
+  var heroId = 18;
+  var batchSize = 30;
+  angular.element($('.hero-show')).scope().getHeroGraph(heroId, batchSize);
 });
 
