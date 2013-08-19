@@ -1,8 +1,9 @@
 app.controller('heroShowCtrl', function($scope, $http) {
 
   $scope.getHeroGraph = function(hero_id, batch) {
-    $http.get('/hero/win_percent_histogram?hero_id=' + hero_id + '&batch=' + batch).success(function(data) {
+    $http.get('/heroes/win_percent_histogram?hero_id=' + hero_id + '&batch=' + batch).success(function(data) {
       $scope.heroWinPercent = data;
+      console.log(data);
     }).error(function(data) {
       console.log("There was an error getting the Hero Graph from Rails." + data);
     });
@@ -17,7 +18,7 @@ app.controller('heroShowCtrl', function($scope, $http) {
 ///// FIXME: NEEDS TO BE BUILT OUT!!
 $(document).ready( function() {
   var heroId = 18;
-  var batchSize = 30;
+  var batchSize = 10;
   angular.element($('.hero-show')).scope().getHeroGraph(heroId, batchSize);
 });
 

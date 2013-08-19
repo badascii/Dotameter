@@ -34,12 +34,15 @@ class Match
   #
   #{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
   def self.hero_win_graph(hero_id, groups_of = 1)
+    hero_id = hero_id.to_i
+    groups_of = groups_of.to_f
+
     # Get all matches ever from database
     # FIXME: This should have a better SQL method to try and return only the records we need.
-    # data = Match.all
-    data = Match.find({players:{$elemMatch:{id:hero_id}}})
+    data = Match.all
+    # data = Match.find_by(players: {hero_id: hero_id})
 
-    matches = data.in_groups_of(groups_of.to_f)
+    matches = data.in_groups_of(groups_of)
 
     # Initialize local variables
     running_sum = 0
@@ -65,15 +68,15 @@ class Match
             running_total += 1
           end
         end
-        # calculate the win %
-        win_percent = running_sum.to_f / running_total.to_f
-        # push it onto the histogram array
-        histogram.push({'y' => win_percent, 'totMatches' => running_total, 'totWins' => running_sum, 'winningTeam' => winning_team})
       end
+      # calculate the win %
+      win_percent = running_sum.to_f / running_total.to_f
+      # push it onto the histogram array
+      histogram.push({'y' => win_percent, 'totMatches' => running_total, 'totWins' => running_sum})
     end
 
-  #   # Explicitly return the work
-  #   return histogram
+    # Explicitly return the work
+    return histogram
   end
 
 end
