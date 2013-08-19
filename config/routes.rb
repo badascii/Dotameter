@@ -4,7 +4,7 @@ Dotameter::Application.routes.draw do
 
   root 'heroes#index'
 
-  get '/hero/win_percent_histogram' => 'heroes#hero_win_graph'
+  get '/heroes/win_percent_histogram' => 'heroes#win_graph'
   get '/heroes/:name' => 'heroes#show'
   resources :heroes, only: [:show, :index]
 
