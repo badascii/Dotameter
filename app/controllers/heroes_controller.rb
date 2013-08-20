@@ -14,6 +14,7 @@ class HeroesController < ApplicationController
       when 'agi'
         hero.primary_stat = 'Agility'
     end
+    cookies[:hero_id] = hero.valve_id
   end
 
   def win_graph
