@@ -11,6 +11,9 @@ gem 'mongoid', :git => 'git://github.com/mongoid/mongoid'
 # Wraps the Angular.js library for use in Rails 3.1 and above. Assets will minify automatically during production.
 gem 'angularjs-rails'
 
+# D3.js Library for the asset pipeline
+gem "d3_rails", "~> 3.2.8"
+
 gem 'newrelic_rpm'
 
 # Allows for use of db push/pull
