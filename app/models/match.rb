@@ -59,7 +59,12 @@ class Match
           # if the hero in the match is the hero we are looking for
           if (player['hero_id'] == hero_id)
             # check if this player was on the winning team
-            player_team = DB.which_team(player['player_slot'])
+            player_team = case player['player_slot']
+                          when (0..4)
+                            "Radiant"
+                          when (128..132)
+                            "Dire"
+                          end
             if (player_team == winning_team)
               # add one to the running sum
               running_sum += 1
