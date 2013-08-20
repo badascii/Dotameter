@@ -77,7 +77,7 @@ class Match
       # calculate the win %
       win_percent = running_sum.to_f / running_total.to_f
       # push it onto the histogram array
-      histogram.push({'y' => win_percent, 'totMatches' => running_total, 'totWins' => running_sum})
+      histogram.push(win_percent.round(2))
     end
 
     # Explicitly return the work

@@ -69,6 +69,12 @@
       .win-percent-graph {
         border: 1px solid lime;
         border-radius: 3px;
+
+        path {
+          fill: none;
+          stroke: crimson;
+          stroke-width: 3px;
+        }
       }
 
       .recent-matches {
