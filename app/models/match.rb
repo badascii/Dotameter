@@ -77,7 +77,7 @@ class Match
       # calculate the win %
       win_percent = running_sum.to_f / running_total.to_f
       # push it onto the histogram array
-      histogram.push(win_percent.round(2))
+      histogram.push((win_percent * 100).round(2))
     end
 
     # Explicitly return the work
