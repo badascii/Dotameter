@@ -59,7 +59,12 @@ class Match
           # if the hero in the match is the hero we are looking for
           if (player['hero_id'] == hero_id)
             # check if this player was on the winning team
-            player_team = DB.which_team(player['player_slot'])
+            player_team = case player['player_slot']
+                          when (0..4)
+                            "Radiant"
+                          when (128..132)
+                            "Dire"
+                          end
             if (player_team == winning_team)
               # add one to the running sum
               running_sum += 1
@@ -72,7 +77,7 @@ class Match
       # calculate the win %
       win_percent = running_sum.to_f / running_total.to_f
       # push it onto the histogram array
-      histogram.push({'y' => win_percent, 'totMatches' => running_total, 'totWins' => running_sum})
+      histogram.push((win_percent * 100).round(2))
     end
 
     # Explicitly return the work
