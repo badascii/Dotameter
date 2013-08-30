@@ -71,22 +71,6 @@ class HeroFetch
     end
   end
 
-  def set_wins_losses(match, radiant_win)
-    match.players.each do |player|
-      valve_id = player["hero_id"]
-      team     = which_team(player["player_slot"])
-      hero     = Hero.find_by(valve_id: valve_id)
-
-      if ((team == "Radiant") && radiant_win) || ((team == "Dire") && !radiant_win)
-        hero.wins += 1
-        hero.save!
-      else
-        hero.losses += 1
-        hero.save!
-      end
-    end
-  end
-
   # 0-4 is Radiant, 128-132 is Dire
   def which_team(position)
     case position
@@ -96,6 +80,27 @@ class HeroFetch
       "Dire"
     end
   end
+
+  def winning_team?(player, radiant_win)
+    team = which_team(player["player_slot"])
+    ((team == "Radiant") && radiant_win) || ((team == "Dire") && !radiant_win)
+  end
+
+  def set_wins_losses(match)
+    match.players.each do |player|
+      valve_id = player["hero_id"]
+      hero     = Hero.find_by(valve_id: valve_id)
+
+      if winning_team?(player, match.radiant_win)
+        hero.wins += 1
+        hero.save!
+      else
+        hero.losses += 1
+        hero.save!
+      end
+    end
+  end
+
 
 end # END OF HERO FETCH
 
