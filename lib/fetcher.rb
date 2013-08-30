@@ -138,12 +138,15 @@ class MatchFetch
     puts "Match saved: Sequence ##{match.match_seq_num}" if match.save!
   end
 
+  def self.last_match
+    Match.last.match_seq_num.to_i
+  end
+
   def get_matches
     first_release_match = 215_706_100
 
     # fetch according to initial release match number or last fetched
-    last_fetched_seq = Match.last.match_seq_num.to_i unless Match.empty?
-    last_fetched_seq ||= first_release_match
+    last_fetched_seq = Match.last_match || first_release_match
 
     begin
       returned_matches = DotaAPI.get_match_details_by_seq(last_fetched_seq + 1)["result"]
