@@ -10,7 +10,7 @@ namespace :dota do
   desc "fetches detailed_matches & populates mongoDB with 100 starting from last fetched seq_num"
   task :get_matches, [:seq_start] => [:environment] do |t, args|
     match_fetch = MatchFetch.new
-    match_fetch.get_matches(args)
+    match_fetch.get_matches
 
     puts "--------------"
     puts "TASK COMPLETED"

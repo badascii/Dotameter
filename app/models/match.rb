@@ -47,7 +47,7 @@ class Match
     # Initialize local variables
     running_sum = 0
     running_total = 0
-    win_percent = 0.00
+    win_percent = 0
     histogram = []
 
     matches.each do |batch|
@@ -59,12 +59,8 @@ class Match
           # if the hero in the match is the hero we are looking for
           if (player['hero_id'] == hero_id)
             # check if this player was on the winning team
-            player_team = case player['player_slot']
-                          when (0..4)
-                            "Radiant"
-                          when (128..132)
-                            "Dire"
-                          end
+            player_team = Hero.which_team(player['player_slot'])
+
             if (player_team == winning_team)
               # add one to the running sum
               running_sum += 1
