@@ -49,19 +49,17 @@ class Match
     running_total = 0
     win_percent = 0
     histogram = []
+    hero_fetch = HeroFetch.new
 
     matches.each do |batch|
       batch.each do |match|
-        # get the winning team/
-        winning_team = if match.radiant_win == true then 'Radiant' else 'Dire' end
+        # winning_team = if match.radiant_win == true then 'Radiant' else 'Dire' end
         # Loop through all the players in that match looking for heroes that match the hero passed.
         match.players.each do |player|
           # if the hero in the match is the hero we are looking for
           if (player['hero_id'] == hero_id)
             # check if this player was on the winning team
-            player_team = Hero.which_team(player['player_slot'])
-
-            if (player_team == winning_team)
+            if hero_fetch.winning_team?(player, match.radiant_win)
               # add one to the running sum
               running_sum += 1
             end
@@ -79,5 +77,17 @@ class Match
     # Explicitly return the work
     return histogram
   end
+
+  # def self.running_total(player, hero_id)
+  #   if player['hero_id'] == hero_id)
+  #     player_team = Hero.which_team(player['player_slot'])
+
+  #     if (player_team == winning_team)
+  #       running_sum += 1
+  #     end
+  #     running_total +=1
+  #   end
+
+  # end
 
 end
