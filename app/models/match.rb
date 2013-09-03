@@ -53,7 +53,6 @@ class Match
 
     matches.each do |batch|
       batch.each do |match|
-        # winning_team = if match.radiant_win == true then 'Radiant' else 'Dire' end
         # Loop through all the players in that match looking for heroes that match the hero passed.
         match.players.each do |player|
           # if the hero in the match is the hero we are looking for
