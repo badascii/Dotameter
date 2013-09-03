@@ -37,14 +37,11 @@ class Match
     hero_id = hero_id.to_i
     groups_of = groups_of.to_f
 
-    # Get all matches ever from database
     # FIXME: This should have a better SQL method to try and return only the records we need.
     data = Match.all
-    # data = Match.find_by(players: {hero_id: hero_id})
 
     matches = data.in_groups_of(groups_of)
 
-    # Initialize local variables
     running_sum = 0
     running_total = 0
     win_percent = 0
@@ -53,16 +50,11 @@ class Match
 
     matches.each do |batch|
       batch.each do |match|
-        # Loop through all the players in that match looking for heroes that match the hero passed.
         match.players.each do |player|
-          # if the hero in the match is the hero we are looking for
           if (player['hero_id'] == hero_id)
-            # check if this player was on the winning team
             if hero_fetch.winning_team?(player, match.radiant_win)
-              # add one to the running sum
               running_sum += 1
             end
-            # add one to the running total
             running_total += 1
           end
         end
@@ -73,7 +65,6 @@ class Match
       histogram.push((win_percent * 100).round(2))
     end
 
-    # Explicitly return the work
     return histogram
   end
 
