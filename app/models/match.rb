@@ -23,7 +23,10 @@ class Match
 
   field :picks_bans,              type: Array
 
-  validates :match_id, presence: true, uniqueness: true
+  validates :radiant_win,   presence: true, uniqueness: true
+  validates :match_id,      presence: true, uniqueness: true
+  validates :match_seq_num, presence: true, uniqueness: true
+  validates :players,       presence: true
 
 
   #{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
