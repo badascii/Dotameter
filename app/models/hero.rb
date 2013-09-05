@@ -31,9 +31,11 @@ class Hero
   field :base_attack_time, type: String
   field :icon,             type: String
 
-  validates :name, presence: true, uniqueness:   true
-  validates :str,  presence: true, numericality: true
-  validates :agi,  presence: true, numericality: true
-  validates :int,  presence: true, numericality: true
+  validates :name,         presence: true, uniqueness:   true
+  validates :valve_id,     presence: true, uniqueness:   true
+  validates :primary_stat, presence: true
+  validates :str,          presence: true, numericality: true
+  validates :agi,          presence: true, numericality: true
+  validates :int,          presence: true, numericality: true
 
 end
