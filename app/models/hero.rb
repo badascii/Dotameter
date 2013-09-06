@@ -38,4 +38,18 @@ class Hero
   validates :agi,          presence: true, numericality: true
   validates :int,          presence: true, numericality: true
 
+  # Returns an array of matches
+  # def recent_matches
+  #   recent = []
+  #   matches = Match.find(:all, order: "match_seq_num desc", limit: 100)
+  #   matches.each do |match|
+  #     match.players.each do |player|
+  #       if (player.valve_id == self.valve_id)
+  #         recent << match
+  #       end
+  #     end
+  #   end
+  #   recent
+  # end
+
 end
