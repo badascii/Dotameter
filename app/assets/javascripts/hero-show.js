@@ -1,4 +1,4 @@
-$(window).load( function() {
+$(window).load(function() {
 
   var data = angular.element($('.hero-show')).scope().heroWinPercent;
   // data.push(100);
@@ -42,12 +42,12 @@ $(window).load( function() {
     .attr("x1", x(0))
     .attr("y1", -1 * y(0))
     .attr("x2", x(w))
-    .attr("y2", -1 * y(0))
+    .attr("y2", -1 * y(0));
 
   group.append("svg:line")
     .attr("x1", x(0))
     .attr("y1", -1 * y(0))
     .attr("x2", x(0))
-    .attr("y2", -1 * y(d3.max(data)))
+    .attr("y2", -1 * y(d3.max(data)));
 
 });
